@@ -21,6 +21,10 @@ export const zh =  defineConfig({
 
         socialLinks: [
             { icon: 'github', link: 'https://github.com/chenmingyong0423/go-mongox-doc' }
-        ]
+        ],
+        footer: {
+            message: '文档根据 <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0.</a> 许可证授权',
+            copyright: `版权所有 © 2024-${new Date().getFullYear()} <a href="https://github.com/chenmingyong0423" target="_blank">陈明勇</a>`
+        },
     },
 })
