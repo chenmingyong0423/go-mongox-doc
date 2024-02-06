@@ -4,7 +4,7 @@
     "docs:build": "vitepress build docs",
     "docs:preview": "vitepress preview docs"
   },
-  "dependencies": {
-    "shiki": "^1.0.0-rc.0"
+  "devDependencies": {
+    "vitepress": "^1.0.0-rc.40"
   }
 }
