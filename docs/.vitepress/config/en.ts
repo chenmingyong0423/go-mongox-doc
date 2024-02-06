@@ -21,11 +21,21 @@ export const en = defineConfig({
                     {text: 'What is go-mongox?', link: '/en/introduction/what-is-go-mongox'},
                     {text: 'Getting Started', link: '/en/introduction/getting-started'}
                 ]
+            },
+            {
+                text: 'CRUD operators',
+                collapsed: true,
+                items: [
+                    {text: 'creator', link: '/en/operator/creator'},
+                    {text: 'finder', link: '/en/operator/finder'},
+                    {text: 'updater', link: '/en/operator/updater'},
+                    {text: 'deleter', link: '/en/operator/deleter'}
+                ]
             }
         ],
 
         socialLinks: [
-            { icon: 'github', link: 'https://github.com/chenmingyong0423/go-mongox' }
+            {icon: 'github', link: 'https://github.com/chenmingyong0423/go-mongox'}
         ],
         footer: {
             message: 'Documentation licensed under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0.</a>',

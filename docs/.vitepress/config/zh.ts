@@ -23,11 +23,21 @@ export const zh = defineConfig({
                     {text: '什么是 go-mongox？', link: '/introduction/what-is-go-mongox'},
                     {text: '快速开始', link: '/introduction/getting-started'}
                 ]
+            },
+            {
+                text: 'CRUD 操作器',
+                collapsed: true,
+                items: [
+                    {text: '创建器', link: '/operator/creator'},
+                    {text: '查询器', link: '/operator/finder'},
+                    {text: '更新器', link: '/operator/updater'},
+                    {text: '删除器', link: '/operator/deleter'}
+                ]
             }
         ],
 
         socialLinks: [
-            { icon: 'github', link: 'https://github.com/chenmingyong0423/go-mongox' }
+            {icon: 'github', link: 'https://github.com/chenmingyong0423/go-mongox'}
         ],
 
         footer: {
