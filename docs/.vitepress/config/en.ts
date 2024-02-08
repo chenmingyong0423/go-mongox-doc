@@ -31,6 +31,9 @@ export const en = defineConfig({
                     {text: 'updater', link: '/en/operator/updater'},
                     {text: 'deleter', link: '/en/operator/deleter'}
                 ]
+            },
+            {
+                text: 'Updating...',
             }
         ],
 

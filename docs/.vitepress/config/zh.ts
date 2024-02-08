@@ -33,6 +33,9 @@ export const zh = defineConfig({
                     {text: '更新器', link: '/operator/updater'},
                     {text: '删除器', link: '/operator/deleter'}
                 ]
+            },
+            {
+                text: '更新中...',
             }
         ],
 
