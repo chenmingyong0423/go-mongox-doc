@@ -23,6 +23,10 @@ export const en = defineConfig({
                 ]
             },
             {
+                text: 'Generic Collection',
+                link: '/en/collection/generic-collection',
+            },
+            {
                 text: 'CRUD operators',
                 collapsed: true,
                 items: [

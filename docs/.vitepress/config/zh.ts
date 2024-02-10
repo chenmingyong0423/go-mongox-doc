@@ -25,6 +25,10 @@ export const zh = defineConfig({
                 ]
             },
             {
+                text: '泛型的 Collection',
+                link: '/collection/generic-collection',
+            },
+            {
                 text: 'CRUD 操作器',
                 collapsed: true,
                 items: [
