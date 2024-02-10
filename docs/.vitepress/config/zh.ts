@@ -39,6 +39,25 @@ export const zh = defineConfig({
                 ]
             },
             {
+                text: "BSON 构造",
+                collapsed: true,
+                items: [
+                    {
+                        text: 'Query BSON 构造',
+                        collapsed: true,
+                        items: [
+                            {
+                                text: '比较操作符',
+                                collapsed: true,
+                                items: [
+                                    {text: 'eq', link: '/construction/query/comparison/eq'}
+                                ]
+                            },
+                        ]
+                    }
+                ]
+            },
+            {
                 text: '更新中...',
             }
         ],

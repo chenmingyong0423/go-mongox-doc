@@ -37,6 +37,25 @@ export const en = defineConfig({
                 ]
             },
             {
+                text: "BSON construction",
+                collapsed: true,
+                items: [
+                    {
+                        text: 'Query BSON construction',
+                        collapsed: true,
+                        items: [
+                            {
+                                text: 'comparison operators',
+                                collapsed: true,
+                                items: [
+                                    {text: 'eq', link: '/en/construction/query/comparison/eq'}
+                                ]
+                            },
+                        ]
+                    }
+                ]
+            },
+            {
                 text: 'Updating...',
             }
         ],
