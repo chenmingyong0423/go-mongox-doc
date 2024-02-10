@@ -48,7 +48,8 @@ export const en = defineConfig({
                                 text: 'comparison operators',
                                 collapsed: true,
                                 items: [
-                                    {text: 'eq', link: '/en/construction/query/comparison/eq'}
+                                    {text: 'eq', link: '/en/construction/query/comparison/eq'},
+                                    {text: 'gt and gte', link: '/en/construction/query/comparison/gt-gte'}
                                 ]
                             },
                         ]
