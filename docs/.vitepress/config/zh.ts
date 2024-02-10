@@ -50,7 +50,8 @@ export const zh = defineConfig({
                                 text: '比较操作符',
                                 collapsed: true,
                                 items: [
-                                    {text: 'eq', link: '/construction/query/comparison/eq'}
+                                    {text: 'eq', link: '/construction/query/comparison/eq'},
+                                    {text: 'gt 和 gte', link: '/construction/query/comparison/gt-gte'}
                                 ]
                             },
                         ]
