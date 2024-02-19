@@ -1,4 +1,7 @@
-# Create a Collection
+# Generic Collection
+
+`mongox` provides a generic `Collection` object, which supports chainable calls to operate on `MongoDB` collections, making data operations more convenient.
+## Create a Collection
 ```go
 type User struct {
   mongox.Model `bson:"inline"`

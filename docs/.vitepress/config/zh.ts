@@ -1,8 +1,8 @@
-import {defineConfig} from 'vitepress'
+import { defineConfig, type DefaultTheme } from 'vitepress'
 
 export const zh = defineConfig({
-    title: "go-mongox",
-    description: "The documentation for go-mongox",
+    lang: 'zh-Hans',
+    description: 'go-mongox 指南',
     themeConfig: {
         nav: [
             {text: '指南', link: '/introduction/getting-started'},
@@ -11,7 +11,7 @@ export const zh = defineConfig({
 
         outline: {
             label: '页面导航',
-            level: [1, 6]
+            level: [2, 6]
         },
 
         sidebar: [
@@ -20,7 +20,7 @@ export const zh = defineConfig({
                 text: '简介',
                 collapsed: true,
                 items: [
-                    {text: '什么是 go-mongox？', link: '/introduction/what-is-go-mongox'},
+                    {text: 'go-mongox 的介绍', link: '/introduction/what-is-go-mongox'},
                     {text: '快速开始', link: '/introduction/getting-started'}
                 ]
             },
@@ -32,10 +32,10 @@ export const zh = defineConfig({
                 text: 'CRUD 操作器',
                 collapsed: true,
                 items: [
-                    {text: '创建器', link: '/operator/creator'},
-                    {text: '查询器', link: '/operator/finder'},
-                    {text: '更新器', link: '/operator/updater'},
-                    {text: '删除器', link: '/operator/deleter'}
+                    {text: 'Creator 创建器', link: '/operator/creator'},
+                    {text: 'Finder 查询器', link: '/operator/finder'},
+                    {text: 'Updater 更新器', link: '/operator/updater'},
+                    {text: 'Deleter 删除器', link: '/operator/deleter'}
                 ]
             },
             {
@@ -50,8 +50,9 @@ export const zh = defineConfig({
                                 text: '比较操作符',
                                 collapsed: true,
                                 items: [
-                                    {text: 'eq', link: '/construction/query/comparison/eq'},
-                                    {text: 'gt 和 gte', link: '/construction/query/comparison/gt-gte'}
+                                    {text: '$eq', link: '/construction/query/comparison/eq'},
+                                    {text: '$gt', link: '/construction/query/comparison/gt'},
+                                    {text: '$gte', link: '/construction/query/comparison/gte'}
                                 ]
                             },
                         ]

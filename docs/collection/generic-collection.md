@@ -1,4 +1,7 @@
-# 创建泛型的 Collection
+# 泛型的 Collection
+`mongox` 提供了泛型的 `Collection` 对象，它支持通过链式调用来操作 `MongoDB` 的集合，更加方便的进行数据操作。
+
+## 创建泛型的 Collection
 ```go
 type User struct {
   mongox.Model `bson:"inline"`

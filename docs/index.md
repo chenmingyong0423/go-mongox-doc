@@ -18,5 +18,9 @@ features:
     details: 通过链式调用来操作 MongoDB 的集合，更加方便的进行数据操作
   - title: 高效构建 bson
     details: 通过 go-mongox 提供的 bson 构建器和内置构建函数，可以更加方便的构建 bson
+  - title: 插件化编程
+    details: go-mongox 提供了插件化编程的方式，可以更加方便的扩展 go-mongox 的功能
+  - title: Hooks 钩子
+    details: go-mongox 提供了钩子函数的方式，可以更加方便的进行数据操作前后的处理
 ---
 

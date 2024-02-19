@@ -1,11 +1,12 @@
-# 函数构造
+# 查询条件 - $eq
+## 函数构造
 使用 `query` 包提供的 `Eq` 函数构造 `eq` 查询条件。
 ```go
 // bson.D{bson.E{Key: "name", Value: bson.D{bson.E{Key: "$eq", Value: "Mingyong Chen"}}}}
 eq := query.Eq("name", "Mingyong Chen")
 ```
 
-# 方法构造（构造器）
+## 方法构造（构造器）
 使用 `query` 包提供的构造器 `Builder` 构造 `eq` 查询条件。
 ```go
 // bson.D{bson.E{Key:"name", Value:bson.D{bson.E{Key:"$eq", Value:"Mingyong Chen"}}}}

@@ -1,8 +1,8 @@
 import {defineConfig} from 'vitepress'
 
 export const en = defineConfig({
-    title: "go-mongox",
-    description: "The documentation for go-mongox",
+    lang: 'en-US',
+    description: 'go-mongox Guide',
     themeConfig: {
         nav: [
             {text: 'Guide', link: '/en/introduction/getting-started'},
@@ -10,7 +10,7 @@ export const en = defineConfig({
         ],
 
         outline: {
-            level: [1, 6]
+            level: [2, 6]
         },
 
         sidebar: [
@@ -30,10 +30,10 @@ export const en = defineConfig({
                 text: 'CRUD operators',
                 collapsed: true,
                 items: [
-                    {text: 'creator', link: '/en/operator/creator'},
-                    {text: 'finder', link: '/en/operator/finder'},
-                    {text: 'updater', link: '/en/operator/updater'},
-                    {text: 'deleter', link: '/en/operator/deleter'}
+                    {text: 'Creator', link: '/en/operator/creator'},
+                    {text: 'Finder', link: '/en/operator/finder'},
+                    {text: 'Updater', link: '/en/operator/updater'},
+                    {text: 'Deleter', link: '/en/operator/deleter'}
                 ]
             },
             {
@@ -48,8 +48,9 @@ export const en = defineConfig({
                                 text: 'comparison operators',
                                 collapsed: true,
                                 items: [
-                                    {text: 'eq', link: '/en/construction/query/comparison/eq'},
-                                    {text: 'gt and gte', link: '/en/construction/query/comparison/gt-gte'}
+                                    {text: '$eq', link: '/en/construction/query/comparison/eq'},
+                                    {text: '$gt', link: '/en/construction/query/comparison/gt'},
+                                    {text: '$gte', link: '/en/construction/query/comparison/gte'}
                                 ]
                             },
                         ]
