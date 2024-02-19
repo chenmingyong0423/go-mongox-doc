@@ -5,6 +5,9 @@ hero:
   name: "go-mongox 文档"
   text: "丝滑操作、链式调用、高效构建 bson"
   tagline: "go-mongox：一个基于 MongoDB 官网库进行二次封装的 Go 语言泛型操作库"
+  image:
+    src: /mongox-logo.jpg
+    alt: go-mongox
   actions:
     - theme: brand
       text: 快速开始
