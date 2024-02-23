@@ -5,6 +5,9 @@ hero:
   name: "go-mongox documentation"
   text: "Silky operation, chain call, efficient construction bson" 
   tagline: "A generic operation library for Go language, which is a secondary encapsulation based on the official MongoDB library"
+  image:
+    src: /mongox-logo.jpg
+    alt: go-mongox
   actions:
     - theme: brand
       text: Getting Started
