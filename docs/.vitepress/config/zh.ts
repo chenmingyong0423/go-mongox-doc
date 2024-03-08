@@ -60,6 +60,21 @@ export const zh = defineConfig({
                 ]
             },
             {
+                text: '钩子 (Hooks)',
+                collapsed: true,
+                items: [
+                    {text: '模型钩子（Model Hooks）', link: '/hooks/model-hooks'},
+                    {text: '一次性钩子', link: '/hooks/one-time-hooks'}
+                ]
+            },
+            {
+                text: '插件（Plugins）',
+                collapsed: true,
+                items: [
+                    {text: '插件', link: '/plugins/plugins'},
+                ]
+            },
+            {
                 text: '更新中...',
             }
         ],

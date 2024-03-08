@@ -58,6 +58,21 @@ export const en = defineConfig({
                 ]
             },
             {
+                text: 'Hooks',
+                collapsed: true,
+                items: [
+                    {text: 'Model Hooks', link: '/en/hooks/model-hooks'},
+                    {text: 'One Time hooks', link: '/en/hooks/one-time-hooks'}
+                ]
+            },
+            {
+                text: 'Plugins',
+                collapsed: true,
+                items: [
+                    {text: 'Plugins', link: '/en/plugins/plugins'},
+                ]
+            },
+            {
                 text: 'Updating...',
             }
         ],
