@@ -71,7 +71,7 @@ export const zh = defineConfig({
                 text: '插件（Plugins）',
                 collapsed: true,
                 items: [
-                    {text: '插件', link: '/plugins/plugins'},
+                    {text: '插件化编程', link: '/plugins/plugins'},
                 ]
             },
             {
