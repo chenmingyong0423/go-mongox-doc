@@ -33,13 +33,15 @@ export const en = defineConfig({
                     {text: 'Creator', link: '/en/operator/creator'},
                     {text: 'Finder', link: '/en/operator/finder'},
                     {text: 'Updater', link: '/en/operator/updater'},
-                    {text: 'Deleter', link: '/en/operator/deleter'}
+                    {text: 'Deleter', link: '/en/operator/deleter'},
+                    {text: 'Aggregator', link: '/en/operator/aggregator'},
                 ]
             },
             {
                 text: "BSON construction",
                 collapsed: true,
                 items: [
+                    {text: 'bsonx', link: '/en/construction/bsonx'},
                     {
                         text: 'Query BSON construction',
                         collapsed: true,

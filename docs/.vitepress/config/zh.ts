@@ -35,13 +35,15 @@ export const zh = defineConfig({
                     {text: 'Creator 创建器', link: '/operator/creator'},
                     {text: 'Finder 查询器', link: '/operator/finder'},
                     {text: 'Updater 更新器', link: '/operator/updater'},
-                    {text: 'Deleter 删除器', link: '/operator/deleter'}
+                    {text: 'Deleter 删除器', link: '/operator/deleter'},
+                    {text: 'Aggregator 聚合器', link: '/operator/aggregator'},
                 ]
             },
             {
                 text: "BSON 构造",
                 collapsed: true,
                 items: [
+                    {text: 'Bsonx 通用构造', link: '/construction/bsonx'},
                     {
                         text: 'Query BSON 构造',
                         collapsed: true,

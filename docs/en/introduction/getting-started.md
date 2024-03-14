@@ -36,6 +36,8 @@
   With the `mongox.NewCollection` function, we can specify generic parameters and create a generic `Collection` object. This way we can use the `userColl` object to manipulate the document of type `User`.
   
   The following operations will be based on the 'userColl' object for example.
+
+  [More about generic Collection](../collection/generic-collection)
 - Insert operation
   ```go
   // Insert a document
@@ -46,6 +48,7 @@
       {Name: "burt", Age: 25},
   })
   ```
+  [More about Creator](../operator/creator)
 - Delete operation
   ```go
   // Delete a document based on name
@@ -53,6 +56,7 @@
   // Delete multiple documents based on name
   deleteMany, err := userColl.Deleter().Filter(query.In("name", "chenmingyong", "burt")).DeleteMany(context.Background())
   ```
+  [More about Deleter](../operator/deleter)
 - Update operation
   ```go
   // Update a single document
@@ -64,6 +68,7 @@
   // Upsert
   updateResult, err := userColl.Updater().Filter(query.Id("60e96214a21b1b0001c3d69e")).Replacement(&User{Name: "chenmingyong", "age": 24}).Upsert(context.Background())
   ```
+  [More about Updater](../operator/updater)
 - Query operation
   ```go
   // Find a document
@@ -73,6 +78,7 @@
   // Count, find the number of documents
   count, err := userColl.Finder().Filter(query.Gt("age", 18)).Count(context.Background())
   ```
+  [More about Finder](../operator/finder)
 - Aggregation operation
   ```go
   // Aggregate query
@@ -92,6 +98,7 @@
       ).Build()).
       AggregateWithParse(context.Background(), &diffUsers)
   ```
+  [More about Aggregator](../operator/aggregator)
 
 ## Bson construction
 - universal bson construction
@@ -113,6 +120,7 @@
   // bson.A{"chenmingyong", "1888***1234"}
   a := bsonx.A("chenmingyong", "1888***1234")
   ```
+  [More about bsonx](../construction/bsonx)
 - query: query statement construction
   ```go
   // Constructed directly by a function
@@ -139,6 +147,7 @@
   // bson.D{bson.E{Key:"qty", Value:bson.D{{Key:"$exists", Value:true}, bson.E{Key:"$nin", Value:[]int{5, 15}}}}}
   d = query.BsonBuilder().Exists("qty", true).NinInt("qty", 5, 15).Build()
   ```
+  [More about query](../construction/query/comparison/eq)
 - update: update statement construction
   ```go
   // Constructed directly by a function
@@ -205,6 +214,7 @@ func (u *User) AfterInsert(ctx context.Context) error {
 
 insertOneResult, err := userColl.Creator().InsertOne(context.Background(), &User{Name: "chenmingyong"})
 ```
+[More about hooks](../hooks/model-hooks)
 ## Plugin
 ```go
 // You can register a callback at any time
@@ -216,3 +226,4 @@ mongox.Register("myBeforeInsertHook", func(ctx context.Context, opCtx *operation
 // You can remove a callback at any time
 mongox.Remove("myBeforeInsertHook", operation.OpTypeBeforeInsert)
 ```
+[More about plugin](../plugins/plugins)

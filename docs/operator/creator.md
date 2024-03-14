@@ -1,5 +1,5 @@
 # Creator 创造器
-通过 `Creator()` 方法获取一个新的泛型的创造器对象，即 `Creator[T]`，通过 `Creator[T]` 的方法，我们能够执行相关的创建操作。
+通过 `Creator()` 方法获取一个新的泛型的创建器对象，即 `Creator[T]`，通过 `Creator[T]` 的方法，我们能够执行相关的创建操作。
 ## 插入一个文档
 ```go
 insertOneResult, err := userColl.Creator().InsertOne(context.Background(), &User{Name: "Mingyong Chen", Age: 18})
