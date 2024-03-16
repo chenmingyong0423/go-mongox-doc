@@ -147,7 +147,7 @@
   // bson.D{bson.E{Key:"qty", Value:bson.D{{Key:"$exists", Value:true}, bson.E{Key:"$nin", Value:[]int{5, 15}}}}}
   d = query.BsonBuilder().Exists("qty", true).NinInt("qty", 5, 15).Build()
   ```
-  [More about query](../construction/query/comparison/eq)
+  [More about query](../construction/query/introduction)
 - update: update statement construction
   ```go
   // Constructed directly by a function

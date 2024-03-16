@@ -46,6 +46,7 @@ export const en = defineConfig({
                         text: 'Query BSON construction',
                         collapsed: true,
                         items: [
+                            {text: 'query package', link: '/en/construction/query/introduction'},
                             {
                                 text: 'comparison operators',
                                 collapsed: true,

@@ -147,7 +147,7 @@
   // bson.D{bson.E{Key:"qty", Value:bson.D{{Key:"$exists", Value:true}, bson.E{Key:"$nin", Value:[]int{5, 15}}}}}
   d = query.BsonBuilder().Exists("qty", true).NinInt("qty", 5, 15).Build()
   ```
-  更多关于 `query` 包的操作请参考 [query 查询构造](../construction/query/comparison/eq)。
+  更多关于 `query` 包的操作请参考 [query 查询构造](../construction/query/introduction)。
 - update：更新语句构造
   ```go
   // 通过函数直接构造

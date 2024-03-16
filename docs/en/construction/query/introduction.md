@@ -1,0 +1,2 @@
+# query package
+The `query` package offers a straightforward approach for constructing `MongoDB` query conditions. It includes an array of functions and constructors designed to simplify the construction of query conditions. For complex query conditions, constructors enable flexible building through a method of chainable calls. For simpler needs, direct use of functions facilitates quick construction of query conditions.
