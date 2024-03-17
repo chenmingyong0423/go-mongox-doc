@@ -166,6 +166,7 @@
   // bson.D{bson.E{Key:"$set", Value:bson.D{bson.E{Key:"name", Value:"陈明勇"}}}, bson.E{Key:"$inc", Value:bson.D{bson.E{Key:"rating Value:-1}}}, bson.E{Key:"$push", Value:bson.D{bson.E{Key:"scores", Value:95}}}}
   u = update.BsonBuilder().Set("name", "陈明勇").Inc("ratings", -1).Push("scores", 95).Build()
   ```
+  更多关于 `update` 包的操作请参考 [update 更新构造](../construction/update/introduction)。
 
 - aggregation：聚合语句构造
   ```go
@@ -194,6 +195,8 @@
       PreserveNullAndEmptyArrays: true,
   }).Build()
   ```
+  更多关于 `aggregation` 包的操作请参考 [aggregation 聚合构造](../construction/aggregation/introduction)。
+
 ## Hooks
 ```go
 type User struct {

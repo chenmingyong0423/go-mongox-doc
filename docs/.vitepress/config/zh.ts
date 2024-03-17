@@ -48,7 +48,7 @@ export const zh = defineConfig({
                         text: 'Query BSON 构造',
                         collapsed: true,
                         items: [
-                            {text: 'query 包', link: '/construction/query/introduction'},
+                            {text: 'Query 包', link: '/construction/query/introduction'},
                             {
                                 text: '比较操作符',
                                 collapsed: true,
@@ -59,7 +59,21 @@ export const zh = defineConfig({
                                 ]
                             },
                         ]
-                    }
+                    },
+                    {
+                        text: 'Update BSON 构造',
+                        collapsed: true,
+                        items: [
+                            {text: 'Update 包', link: '/construction/update/introduction'},
+                        ]
+                    },
+                    {
+                        text: 'Aggregation BSON 构造',
+                        collapsed: true,
+                        items: [
+                            {text: 'Aggregation 包', link: '/construction/aggregation/introduction'},
+                        ]
+                    },
                 ]
             },
             {

@@ -41,14 +41,14 @@ export const en = defineConfig({
                 text: "BSON construction",
                 collapsed: true,
                 items: [
-                    {text: 'bsonx', link: '/en/construction/bsonx'},
+                    {text: 'Bsonx', link: '/en/construction/bsonx'},
                     {
-                        text: 'Query BSON construction',
+                        text: 'Query BSON Construction',
                         collapsed: true,
                         items: [
-                            {text: 'query package', link: '/en/construction/query/introduction'},
+                            {text: 'Query Package', link: '/en/construction/query/introduction'},
                             {
-                                text: 'comparison operators',
+                                text: 'Comparison Operators',
                                 collapsed: true,
                                 items: [
                                     {text: '$eq', link: '/en/construction/query/comparison/eq'},
@@ -57,7 +57,21 @@ export const en = defineConfig({
                                 ]
                             },
                         ]
-                    }
+                    },
+                    {
+                        text: 'Update BSON Construction',
+                        collapsed: true,
+                        items: [
+                            {text: 'Update Package', link: '/en/construction/update/introduction'},
+                        ]
+                    },
+                    {
+                        text: 'Aggregation BSON Construction',
+                        collapsed: true,
+                        items: [
+                            {text: 'Aggregation Package', link: '/en/construction/aggregation/introduction'},
+                        ]
+                    },
                 ]
             },
             {

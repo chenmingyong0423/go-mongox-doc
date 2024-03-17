@@ -100,7 +100,7 @@
   ```
   [More about Aggregator](../operator/aggregator)
 
-## Bson construction
+## Bson Construction
 - universal bson construction
   ```go
   // bson.M{"name": "chenmingyong"}
@@ -166,6 +166,7 @@
   // bson.D{bson.E{Key:"$set", Value:bson.D{bson.E{Key:"name", Value:"chenmingyong"}}}, bson.E{Key:"$inc", Value:bson.D{bson.E{Key:"rating Value:-1}}}, bson.E{Key:"$push", Value:bson.D{bson.E{Key:"scores", Value:95}}}}
   u = update.BsonBuilder().Set("name", "chenmingyong").Inc("ratings", -1).Push("scores", 95).Build()
   ```
+  [More about update](../construction/update/introduction)
 
 - aggregation: aggregation statement construction
   ```go
@@ -194,6 +195,8 @@
       PreserveNullAndEmptyArrays: true,
   }).Build()
   ```
+  [More about aggregation](../construction/aggregation/introduction)
+
 ## Hooks
 ```go
 type User struct {
