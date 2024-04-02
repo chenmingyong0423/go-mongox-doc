@@ -3,7 +3,7 @@ layout: home
 
 hero:
   name: "go-mongox 文档"
-  text: "丝滑操作、链式调用、高效构建 bson"
+  text: "泛型集合、链式调用、高效构建 bson、插件化编程"
   tagline: "go-mongox：一个基于 MongoDB 官网库进行二次封装的 Go 语言泛型操作库"
   image:
     src: /go-mongox-logo.png
@@ -30,6 +30,6 @@ features:
   - title: 自动化地更新默认的 fields
     details: go-mongox 内置一个通用 Model 结构体。它的字段在新建或修改文档时自动更新。
   - title: 支持结构体 tag 校验
-    details: go-mongox 提供了自动标签验证功能，通过内置的校验 hook 识别和验证结构体标签。它利用 go-playground/validator 库，自动确保字段值符合预定义的校验规则。
+    details: go-mongox 使用 go-playground/validator 库确保结构体的字段值符合预定义的校验规则。
 ---
 

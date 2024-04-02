@@ -3,7 +3,7 @@ layout: home
 
 hero:
   name: "go-mongox documentation"
-  text: "Silky operation, chain call, efficient construction bson" 
+  text: "Generic Collection, chain call, efficient construction bson, Plugin programming" 
   tagline: "A generic operation library for Go language, which is a secondary encapsulation based on the official MongoDB library"
   image:
     src: /go-mongox-logo.png
@@ -29,7 +29,7 @@ features:
     details: go-mongox provides a way of hook function, which can more conveniently handle the data operation before and after
   - title: Automatic Default Fields Update
     details: go-mongox comes with a built-in generic Model struct. Its fields are automatically updated when creating or modifying documents.
-  - title: Struct Tag Validation Support
-    details: go-mongox offers an automatic tag validation feature that uses an integrated validation hook to recognize and validate struct tags. It employs the go-playground/validator library to automatically ensure that field values meet predefined validation criteria.
+  - title: Support for Struct Tag Validation
+    details: go-mongox uses the go-playground/validator library to ensure that the values of struct fields comply with predefined validation rules.
 ---
 
