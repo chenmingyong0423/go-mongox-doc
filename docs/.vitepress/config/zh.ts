@@ -55,7 +55,8 @@ export const zh = defineConfig({
                                 items: [
                                     {text: '$eq', link: '/construction/query/comparison/eq'},
                                     {text: '$gt', link: '/construction/query/comparison/gt'},
-                                    {text: '$gte', link: '/construction/query/comparison/gte'}
+                                    {text: '$gte', link: '/construction/query/comparison/gte'},
+                                    {text: '$in', link: '/construction/query/comparison/in'}
                                 ]
                             },
                         ]
