@@ -43,7 +43,7 @@ export const zh = defineConfig({
                 text: "BSON 构造",
                 collapsed: true,
                 items: [
-                    {text: 'Bsonx 通用构造', link: '/construction/bsonx'},
+                    {text: 'Bsonx 包：简化 BSON 数据的构造', link: '/construction/bsonx'},
                     {
                         text: 'Query BSON 构造',
                         collapsed: true,

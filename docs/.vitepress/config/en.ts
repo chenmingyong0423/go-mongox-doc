@@ -41,7 +41,7 @@ export const en = defineConfig({
                 text: "BSON construction",
                 collapsed: true,
                 items: [
-                    {text: 'Bsonx', link: '/en/construction/bsonx'},
+                    {text: 'Bsonx: Simplify the construction of BSON data', link: '/en/construction/bsonx'},
                     {
                         text: 'Query BSON Construction',
                         collapsed: true,
