@@ -24,7 +24,9 @@ func (m *Model) DefaultUpdatedAt() {
 }
 ```
 
-This struct facilitates automatic handling of document creation and update operations by implementing the `DefaultModelHook` interface. Specifically, during document creation, the `DefaultId()` and `DefaultCreatedAt()` methods are invoked to initialize the `ID` and `CreatedAt` fields, respectively. For document updates, the `DefaultUpdatedAt()` method is called to refresh the `UpdatedAt` field. When performing save (or upsert) operations, all three methods are executed to ensure that all pertinent fields are properly initialized or updated.
+This struct facilitates automatic handling of document creation and update operations by implementing the `DefaultModelHook` interface. 
+
+Specifically, during document creation(`InsertOne, InsertMany`), the `DefaultId()` and `DefaultCreatedAt()` methods are invoked to initialize the `ID` and `CreatedAt` fields, respectively. For document updates(`UpdateOne`、`UpdateMany`、`UpdatesWithOperator`), the `DefaultUpdatedAt()` method is called to refresh the `UpdatedAt` field. When performing save (`Upsert`) operations, all three methods are executed to ensure that all pertinent fields are properly initialized or updated.
 
 You can embed it within your defined structs, as demonstrated below:
 ```go
