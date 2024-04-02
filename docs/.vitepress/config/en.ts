@@ -75,6 +75,11 @@ export const en = defineConfig({
                 ]
             },
             {
+                text: 'Built-in Model',
+                collapsed: true,
+                link: '/en/model'
+            },
+            {
                 text: 'Hooks',
                 collapsed: true,
                 items: [

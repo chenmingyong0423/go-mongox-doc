@@ -27,7 +27,7 @@ features:
     details: go-mongox provides a way of plug-in programming, which can more conveniently extend the function of go-mongox
   - title: Hooks
     details: go-mongox provides a way of hook function, which can more conveniently handle the data operation before and after
-  - title: Automatic Default Fields Update
+  - title: Built-in model, automate updates to the default field fields
     details: go-mongox comes with a built-in generic Model struct. Its fields are automatically updated when creating or modifying documents.
   - title: Support for Struct Tag Validation
     details: go-mongox uses the go-playground/validator library to ensure that the values of struct fields comply with predefined validation rules.

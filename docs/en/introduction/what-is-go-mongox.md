@@ -6,7 +6,6 @@
 - Aggregation operations
 - Built-in basic `Model` structure for automated updates of default `field` fields
 - Support for constructing `bson` data
-- Automatically default fields 
 - Struct tags validation
 - Hooks
 - Plugin programming support

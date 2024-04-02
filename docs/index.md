@@ -27,8 +27,8 @@ features:
     details: go-mongox 提供了插件化编程的方式，可以更加方便的扩展 go-mongox 的功能
   - title: Hooks 钩子
     details: go-mongox 提供了钩子函数的方式，可以更加方便的进行数据操作前后的处理
-  - title: 自动化地更新默认的 fields
-    details: go-mongox 内置一个通用 Model 结构体。它的字段在新建或修改文档时自动更新。
+  - title: 内置 Model，自动化更新默认的 field 字段
+    details: go-mongox 内置一个通用 Model 结构体。它的字段值在新建或修改文档时自动更新。
   - title: 支持结构体 tag 校验
     details: go-mongox 使用 go-playground/validator 库确保结构体的字段值符合预定义的校验规则。
 ---

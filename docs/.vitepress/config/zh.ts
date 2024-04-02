@@ -77,6 +77,11 @@ export const zh = defineConfig({
                 ]
             },
             {
+                text: '内置的 Model',
+                collapsed: true,
+                link: '/model'
+            },
+            {
                 text: '钩子 (Hooks)',
                 collapsed: true,
                 items: [
