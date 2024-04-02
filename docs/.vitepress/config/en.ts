@@ -53,7 +53,8 @@ export const en = defineConfig({
                                 items: [
                                     {text: '$eq', link: '/en/construction/query/comparison/eq'},
                                     {text: '$gt', link: '/en/construction/query/comparison/gt'},
-                                    {text: '$gte', link: '/en/construction/query/comparison/gte'}
+                                    {text: '$gte', link: '/en/construction/query/comparison/gte'},
+                                    {text: '$in', link: '/en/construction/query/comparison/in'}
                                 ]
                             },
                         ]
