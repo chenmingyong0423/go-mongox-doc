@@ -82,6 +82,16 @@ export const zh = defineConfig({
                 link: '/model'
             },
             {
+                text: '数据校验',
+                collapsed: true,
+                items: [
+                    {
+                        text: '结构体校验',
+                        link: '/validation/struct-validation'
+                    }
+                ]
+            },
+            {
                 text: '钩子 (Hooks)',
                 collapsed: true,
                 items: [

@@ -80,6 +80,16 @@ export const en = defineConfig({
                 link: '/en/model'
             },
             {
+                text: 'Data Validation',
+                collapsed: true,
+                items: [
+                    {
+                        text: 'Struct Validation',
+                        link: '/en/validation/struct-validation'
+                    }
+                ]
+            },
+            {
                 text: 'Hooks',
                 collapsed: true,
                 items: [
