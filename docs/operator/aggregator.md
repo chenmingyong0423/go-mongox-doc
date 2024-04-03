@@ -8,3 +8,8 @@ users, err := userColl.Aggregator().
     Pipeline(aggregation.StageBsonBuilder().Project(bsonx.M("age", 0)).Build()).
     Aggregate(context.Background())
 ```
+`Pipeline()` 方法用于设置 **管道**，而 `Aggregate()` 方法则是执行聚合操作。
+
+通过使用 `aggregation` 包中的 `StageBsonBuilder()` 构造器，我们构建了一个 `Project` 阶段，以排除 `age` 字段。更多关于 `aggregation` 包的操作请参考 [aggregation 聚合构造](../construction/aggregation/introduction)。
+
+
