@@ -85,18 +85,20 @@
   users, err := userColl.Aggregator().
       Pipeline(aggregation.StageBsonBuilder().Project(bsonx.M("age", 0)).Build()).
       Aggregate(context.Background())
+  
   // 聚合查询并解析结果
-  type DiffUser struct {
+  // 字段重命名
+  type RealUser struct {
       mongox.Model `bson:"inline"`
       RealName     string `bson:"real_name"`
       Age          int    `bson:"age"`
   }
-  diffUsers := make([]*DiffUser, 0)
+  var results []*RealUser
   err := userColl.Aggregator().
       Pipeline(aggregation.StageBsonBuilder().Project(
-          bsonx.NewD().Add("age", 0).Add("real_name", "$name").Build(),
+          bsonx.NewD().Add("real_name", "$name").Add("age", 1).Build(),
       ).Build()).
-      AggregateWithParse(context.Background(), &diffUsers)
+      AggregateWithParse(context.Background(), &results)
   ```
   更多关于 `Aggregator` 的操作请参考 [Aggregator 聚合器](../operator/aggregator)。
 
