@@ -73,6 +73,14 @@ export const zh = defineConfig({
                         collapsed: true,
                         items: [
                             {text: 'Aggregation 包', link: '/construction/aggregation/introduction'},
+                            {
+                                text: 'Stage 阶段构建',
+                                collapsed: true,
+                                items: [
+                                    {text: "stage 构建器",link: '/construction/aggregation/stage/introduction'}
+                                ]
+                            },
+
                         ]
                     },
                 ]
