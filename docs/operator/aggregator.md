@@ -6,7 +6,7 @@
 - `Aggregate()` 用于执行聚合操作，返回的查询结果类型与 `T` 一致。
 - `AggregateWithParse()` 也是用于执行聚合操作，但使用场景不一样。当聚合结果的类型与 `T` 不一致时，使用 `AggregateWithParse()` 方法可以将结果解析到指定的对象里。
 
-本文通过两个示例展示了这三种方法的用法。然而，聚合操作的核心在于构建聚合管道。关于这一部分的内容，请参阅 [聚合阶段构造](../construction/aggregation/stage/introduction)。
+本文通过两个示例展示了这三种方法的用法。然而，聚合操作的核心在于构建聚合管道。关于这一部分的内容，请参阅 [聚合阶段构建](../build/aggregation/stage/introduction)。
 
 ## 忽略指定字段
 ```go
@@ -17,7 +17,7 @@ users, err := userColl.Aggregator().
 ```
 `Pipeline()` 方法用于设置 **管道**，而 `Aggregate()` 方法则是执行聚合操作。
 
-通过使用 `aggregation` 包中的 `StageBsonBuilder()` 构造器，我们构建了一个 `Project` 阶段，以排除 `age` 字段。
+通过使用 `aggregation` 包中的 `StageBsonBuilder()` 构建器，我们构建了一个 `Project` 阶段，以排除 `age` 字段。
 
 ## 字段重命名
 ```go

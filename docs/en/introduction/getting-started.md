@@ -100,8 +100,8 @@
   ```
   [More about Aggregator](../operator/aggregator)
 
-## Bson Construction
-- universal bson construction
+## Bson Build
+- universal bson build
   ```go
   // bson.M{"name": "chenmingyong"}
   m := bsonx.M("name", "chenmingyong")
@@ -120,10 +120,10 @@
   // bson.A{"chenmingyong", "1888***1234"}
   a := bsonx.A("chenmingyong", "1888***1234")
   ```
-  [More about bsonx](../construction/bsonx)
-- query: query statement construction
+  [More about bsonx](../build/bsonx)
+- query: query statement build
   ```go
-  // Constructed directly by a function
+  // Builded directly by a function
   // bson.D{bson.E{Key:"name", Value:bson.D{bson.E{Key:"$eq", Value:"chenmingyong"}}}}
   d := query.Eq("name", "chenmingyong")
   
@@ -134,7 +134,7 @@
   // bson.D{bson.E{Key: "result", Value: bson.D{bson.E{Key: "$elemMatch", Value: bson.D{bson.E{Key: "$gte", Value: 80}, bson.E{Key: "$lt", Value: 85}}}}}}
   d = query.ElemMatch("result", bsonx.D(bsonx.E("$gte", 80), bsonx.E("$lt", 85)))
   
-  // Constructed by a constructor
+  // Builded by a builder
   // bson.D{bson.E{Key:"age", Value:bson.D{{Key:"$gt", Value:18}, bson.E{Key:"$lt", Value:25}}}}
   d = query.BsonBuilder().Gt("age", 18).Lt("age", 25).Build()
   
@@ -147,10 +147,10 @@
   // bson.D{bson.E{Key:"qty", Value:bson.D{{Key:"$exists", Value:true}, bson.E{Key:"$nin", Value:[]int{5, 15}}}}}
   d = query.BsonBuilder().Exists("qty", true).NinInt("qty", 5, 15).Build()
   ```
-  [More about query](../construction/query/introduction)
-- update: update statement construction
+  [More about query](../build/query/introduction)
+- update: update statement build
   ```go
-  // Constructed directly by a function
+  // Builded directly by a function
   // bson.D{bson.E{Key:"$set", Value:bson.M{"name":"chenmingyong"}}}
   u := update.Set("name", "chenmingyong")
   
@@ -160,15 +160,15 @@
   // bson.D{bson.E{Key:"$push", Value:bson.M{"scores":95}}}
   u = update.BsonBuilder().Push("scores", 95).Build()
   
-  // Constructed by a constructor
+  // Builded by a builder
   // bson.D{bson.E{Key:"$set", Value:bson.D{bson.E{Key:"name", Value:"chenmingyong"}, bson.E{Key:"sex", Value:"男"}}}}
   u = update.BsonBuilder().Set("name", "chenmingyong").Set("sex", "男").Build()
   // bson.D{bson.E{Key:"$set", Value:bson.D{bson.E{Key:"name", Value:"chenmingyong"}}}, bson.E{Key:"$inc", Value:bson.D{bson.E{Key:"rating Value:-1}}}, bson.E{Key:"$push", Value:bson.D{bson.E{Key:"scores", Value:95}}}}
   u = update.BsonBuilder().Set("name", "chenmingyong").Inc("ratings", -1).Push("scores", 95).Build()
   ```
-  [More about update](../construction/update/introduction)
+  [More about update](../build/update/introduction)
 
-- aggregation: aggregation statement construction
+- aggregation: aggregation statement build
   ```go
   // bson.D{bson.E{Key:"total", Value:bson.D{bson.E{Key:"$gt", Value:[]interface {}{"$price", "$fee"}}}}}
   gt := aggregation.Gt("total", []any{"$price", "$fee"}...)
@@ -195,7 +195,7 @@
       PreserveNullAndEmptyArrays: true,
   }).Build()
   ```
-  [More about aggregation](../construction/aggregation/introduction)
+  [More about aggregation](../build/aggregation/introduction)
 
 ## Hooks
 ```go

@@ -40,44 +40,44 @@ export const zh = defineConfig({
                 ]
             },
             {
-                text: "BSON 构造",
+                text: "BSON 构建",
                 collapsed: true,
                 items: [
-                    {text: 'Bsonx 包：简化 BSON 数据的构造', link: '/construction/bsonx'},
+                    {text: 'Bsonx 包：简化 BSON 数据的构建', link: '/build/bsonx'},
                     {
-                        text: 'Query BSON 构造',
+                        text: 'Query BSON 构建',
                         collapsed: true,
                         items: [
-                            {text: 'Query 包', link: '/construction/query/introduction'},
+                            {text: 'Query 包', link: '/build/query/introduction'},
                             {
                                 text: '比较操作符',
                                 collapsed: true,
                                 items: [
-                                    {text: '$eq', link: '/construction/query/comparison/eq'},
-                                    {text: '$gt', link: '/construction/query/comparison/gt'},
-                                    {text: '$gte', link: '/construction/query/comparison/gte'},
-                                    {text: '$in', link: '/construction/query/comparison/in'}
+                                    {text: '$eq', link: '/build/query/comparison/eq'},
+                                    {text: '$gt', link: '/build/query/comparison/gt'},
+                                    {text: '$gte', link: '/build/query/comparison/gte'},
+                                    {text: '$in', link: '/build/query/comparison/in'}
                                 ]
                             },
                         ]
                     },
                     {
-                        text: 'Update BSON 构造',
+                        text: 'Update BSON 构建',
                         collapsed: true,
                         items: [
-                            {text: 'Update 包', link: '/construction/update/introduction'},
+                            {text: 'Update 包', link: '/build/update/introduction'},
                         ]
                     },
                     {
-                        text: 'Aggregation BSON 构造',
+                        text: 'Aggregation BSON 构建',
                         collapsed: true,
                         items: [
-                            {text: 'Aggregation 包', link: '/construction/aggregation/introduction'},
+                            {text: 'Aggregation 包', link: '/build/aggregation/introduction'},
                             {
                                 text: 'Stage 阶段构建',
                                 collapsed: true,
                                 items: [
-                                    {text: "stage 构建器",link: '/construction/aggregation/stage/introduction'}
+                                    {text: "stage 构建器",link: '/build/aggregation/stage/introduction'}
                                 ]
                             },
 

@@ -6,7 +6,7 @@ The aggregator implements three methods:
 - `Aggregate()` executes the aggregation operation, returning a query result of the same type as `T`.
 - `AggregateWithParse()` is also used to perform aggregation operations, but it is used in different scenarios. When the type of the aggregation result does not match `T`, the `AggregateWithParse()` method can be used to parse the result into a specified object.
 
-This article demonstrates the usage of these three methods through two examples. However, the core of aggregation operations lies in building the aggregation pipeline. For more information on this aspect, please refer to [construction of aggregation stages](../construction/aggregation/stage/introduction).
+This article demonstrates the usage of these three methods through two examples. However, the core of aggregation operations lies in building the aggregation pipeline. For more information on this aspect, please refer to [build of aggregation stages](../build/aggregation/stage/introduction).
 
 ## Ignoring Specific Fields
 ```go
@@ -17,7 +17,7 @@ users, err := userColl.Aggregator().
 ```
 The `Pipeline()` method is for setting up the **pipeline**, and the `Aggregate()` method executes the aggregation operation.
 
-By using the `StageBsonBuilder()` constructor from the `aggregation` package, we have built a `Project` stage to exclude the `age` field.
+By using the `StageBsonBuilder()` builder from the `aggregation` package, we have built a `Project` stage to exclude the `age` field.
 
 ## Renaming Fields
 ```go

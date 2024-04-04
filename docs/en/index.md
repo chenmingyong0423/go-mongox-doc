@@ -3,7 +3,7 @@ layout: home
 
 hero:
   name: "go-mongox documentation"
-  text: "Generic Collection, chain call, efficient construction bson, Plugin programming" 
+  text: "Generic Collection, chain call, efficient build bson, Plugin programming" 
   tagline: "A generic operation library for Go language, which is a secondary encapsulation based on the official MongoDB library"
   image:
     src: /go-mongox-logo.png
@@ -21,8 +21,8 @@ features:
     details: By leveraging generics to bind structs with MongoDB collections, it ensures type safety and simplifies data operations.
   - title: Chain call
     details: Use chain calls to operate MongoDB collections, making data operations more convenient
-  - title: Efficient construction bson
-    details: Through the bson builder and built-in construction functions provided by go-mongox, bson can be more conveniently constructed
+  - title: Efficient build bson
+    details: Through the bson builder and built-in build functions provided by go-mongox, bson can be more conveniently buildeded
   - title: Plugin programming
     details: go-mongox provides a way of plug-in programming, which can more conveniently extend the function of go-mongox
   - title: Hooks

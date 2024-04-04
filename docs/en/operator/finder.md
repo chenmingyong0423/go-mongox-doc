@@ -7,7 +7,7 @@ user, err := userColl.Finder().Filter(query.Id("60e96214a21b1b0001c3d69e")).Find
 ```
 The `FindOne` method is used to query a single document. `user` is a pointer object of the specified generic type, i.e., `*User`.
 
-The `Filter` method allows us to specify search criteria. It accepts parameters of type `any`, meaning any type of argument can be passed in, provided they are valid query conditions. In the example above, `query.Id("60e96214a21b1b0001c3d69e")` is used to specify the search condition where `_id` equals `60e96214a21b1b0001c3d69e`. For more on constructing query conditions, refer to the `query` package.
+The `Filter` method allows us to specify search criteria. It accepts parameters of type `any`, meaning any type of argument can be passed in, provided they are valid query conditions. In the example above, `query.Id("60e96214a21b1b0001c3d69e")` is used to specify the search condition where `_id` equals `60e96214a21b1b0001c3d69e`. For more on building query conditions, refer to the `query` package.
 ## Find multiple documents
 ```go
 users, err := userColl.Finder().Filter(query.In("_id", "60e96214a21b1b0001c3d69e", "80e96214a21b1b0001c3d70e")).Find(context.Background())

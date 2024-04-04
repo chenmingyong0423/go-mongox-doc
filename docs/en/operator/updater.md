@@ -10,7 +10,7 @@ updateResult, err := userColl.Updater().
 ```
 The `UpdateOne` method is used to update a single document. The `updateResult` is of type `*mongo.UpdateResult`.
 
-Through the `Updates` method, we can specify the operations for the update. This method accepts parameters of type `any`, allowing for any type of argument to be passed in, provided they conform to a valid update statement structure. In the example provided, `update.Set("name", "Mingyong Chen")` is used to specify that the `name` field should be updated to "Mingyong Chen". For more constructions of update statements, refer to the `update` package.
+Through the `Updates` method, we can specify the operations for the update. This method accepts parameters of type `any`, allowing for any type of argument to be passed in, provided they conform to a valid update statement structure. In the example provided, `update.Set("name", "Mingyong Chen")` is used to specify that the `name` field should be updated to "Mingyong Chen". For more buildss of update statements, refer to the `update` package.
 
 ## Update multiple documents
 ```go

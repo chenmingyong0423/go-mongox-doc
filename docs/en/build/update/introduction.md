@@ -1,0 +1,2 @@
+# Update Package
+The `update` package offers a straightforward approach for building `MongoDB` update conditions. It includes an array of functions and builders designed to simplify the build of update conditions. For complex update conditions, builders enable flexible building through a method of chainable calls. For simpler needs, direct use of functions facilitates quick build of update conditions.

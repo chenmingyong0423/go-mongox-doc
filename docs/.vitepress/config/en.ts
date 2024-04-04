@@ -38,44 +38,44 @@ export const en = defineConfig({
                 ]
             },
             {
-                text: "BSON construction",
+                text: "BSON build",
                 collapsed: true,
                 items: [
-                    {text: 'Bsonx: Simplify the construction of BSON data', link: '/en/construction/bsonx'},
+                    {text: 'Bsonx: Simplify the build of BSON data', link: '/en/build/bsonx'},
                     {
-                        text: 'Query BSON Construction',
+                        text: 'Query BSON Build',
                         collapsed: true,
                         items: [
-                            {text: 'Query Package', link: '/en/construction/query/introduction'},
+                            {text: 'Query Package', link: '/en/build/query/introduction'},
                             {
                                 text: 'Comparison Operators',
                                 collapsed: true,
                                 items: [
-                                    {text: '$eq', link: '/en/construction/query/comparison/eq'},
-                                    {text: '$gt', link: '/en/construction/query/comparison/gt'},
-                                    {text: '$gte', link: '/en/construction/query/comparison/gte'},
-                                    {text: '$in', link: '/en/construction/query/comparison/in'}
+                                    {text: '$eq', link: '/en/build/query/comparison/eq'},
+                                    {text: '$gt', link: '/en/build/query/comparison/gt'},
+                                    {text: '$gte', link: '/en/build/query/comparison/gte'},
+                                    {text: '$in', link: '/en/build/query/comparison/in'}
                                 ]
                             },
                         ]
                     },
                     {
-                        text: 'Update BSON Construction',
+                        text: 'Update BSON Build',
                         collapsed: true,
                         items: [
-                            {text: 'Update Package', link: '/en/construction/update/introduction'},
+                            {text: 'Update Package', link: '/en/build/update/introduction'},
                         ]
                     },
                     {
-                        text: 'Aggregation BSON Construction',
+                        text: 'Aggregation BSON Build',
                         collapsed: true,
                         items: [
-                            {text: 'Aggregation Package', link: '/en/construction/aggregation/introduction'},
+                            {text: 'Aggregation Package', link: '/en/build/aggregation/introduction'},
                             {
                                 "text": "Stage Build",
                                 "collapsed": true,
                                 "items": [
-                                    {"text": "Stage Builder", "link": "/en/construction/aggregation/stage/introduction"}
+                                    {"text": "Stage Builder", "link": "/en/build/aggregation/stage/introduction"}
                                 ]
                             }
                         ]

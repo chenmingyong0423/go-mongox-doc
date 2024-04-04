@@ -102,8 +102,8 @@
   ```
   更多关于 `Aggregator` 的操作请参考 [Aggregator 聚合器](../operator/aggregator)。
 
-## bson 构造
-- universal：通用 bson 构造
+## bson 构建
+- universal：通用 bson 构建
   ```go
   // bson.M{"姓名": "陈明勇"}
   m := bsonx.M("姓名", "陈明勇")
@@ -122,10 +122,10 @@
   // bson.A{"陈明勇", "1888***1234"}
   a := bsonx.A("陈明勇", "1888***1234")
   ```
-  更多关于 `bsonx` 包的操作请参考 [bsonx 通用构造](../construction/bsonx)。
-- query：查询语句构造
+  更多关于 `bsonx` 包的操作请参考 [bsonx 通用构建](../build/bsonx)。
+- query：查询语句构建
   ```go
-  // 通过函数直接构造
+  // 通过函数直接构建
   // bson.D{bson.E{Key:"姓名", Value:bson.D{bson.E{Key:"$eq", Value:"陈明勇"}}}}
   d := query.Eq("姓名", "陈明勇")
   
@@ -136,7 +136,7 @@
   // bson.D{bson.E{Key: "result", Value: bson.D{bson.E{Key: "$elemMatch", Value: bson.D{bson.E{Key: "$gte", Value: 80}, bson.E{Key: "$lt", Value: 85}}}}}}
   d = query.ElemMatch("result", bsonx.D(bsonx.E("$gte", 80), bsonx.E("$lt", 85)))
   
-  // 通过构造器构造
+  // 通过构建器构建
   // bson.D{bson.E{Key:"age", Value:bson.D{{Key:"$gt", Value:18}, bson.E{Key:"$lt", Value:25}}}}
   d = query.BsonBuilder().Gt("age", 18).Lt("age", 25).Build()
   
@@ -149,10 +149,10 @@
   // bson.D{bson.E{Key:"qty", Value:bson.D{{Key:"$exists", Value:true}, bson.E{Key:"$nin", Value:[]int{5, 15}}}}}
   d = query.BsonBuilder().Exists("qty", true).NinInt("qty", 5, 15).Build()
   ```
-  更多关于 `query` 包的操作请参考 [query 查询构造](../construction/query/introduction)。
-- update：更新语句构造
+  更多关于 `query` 包的操作请参考 [query 查询构建](../build/query/introduction)。
+- update：更新语句构建
   ```go
-  // 通过函数直接构造
+  // 通过函数直接构建
   // bson.D{bson.E{Key:"$set", Value:bson.M{"name":"陈明勇"}}}
   u := update.Set("name", "陈明勇")
   
@@ -162,15 +162,15 @@
   // bson.D{bson.E{Key:"$push", Value:bson.M{"scores":95}}}
   u = update.BsonBuilder().Push("scores", 95).Build()
   
-  // 通过构造器构造
+  // 通过构建器构建
   // bson.D{bson.E{Key:"$set", Value:bson.D{bson.E{Key:"name", Value:"陈明勇"}, bson.E{Key:"sex", Value:"男"}}}}
   u = update.BsonBuilder().Set("name", "陈明勇").Set("sex", "男").Build()
   // bson.D{bson.E{Key:"$set", Value:bson.D{bson.E{Key:"name", Value:"陈明勇"}}}, bson.E{Key:"$inc", Value:bson.D{bson.E{Key:"rating Value:-1}}}, bson.E{Key:"$push", Value:bson.D{bson.E{Key:"scores", Value:95}}}}
   u = update.BsonBuilder().Set("name", "陈明勇").Inc("ratings", -1).Push("scores", 95).Build()
   ```
-  更多关于 `update` 包的操作请参考 [update 更新构造](../construction/update/introduction)。
+  更多关于 `update` 包的操作请参考 [update 更新构建](../build/update/introduction)。
 
-- aggregation：聚合语句构造
+- aggregation：聚合语句构建
   ```go
   // bson.D{bson.E{Key:"total", Value:bson.D{bson.E{Key:"$gt", Value:[]interface {}{"$price", "$fee"}}}}}
   gt := aggregation.Gt("total", []any{"$price", "$fee"}...)
@@ -197,7 +197,7 @@
       PreserveNullAndEmptyArrays: true,
   }).Build()
   ```
-  更多关于 `aggregation` 包的操作请参考 [aggregation 聚合构造](../construction/aggregation/introduction)。
+  更多关于 `aggregation` 包的操作请参考 [aggregation 聚合构建](../build/aggregation/introduction)。
 
 ## Hooks
 ```go
