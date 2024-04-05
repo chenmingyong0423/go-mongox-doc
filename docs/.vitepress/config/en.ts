@@ -78,6 +78,7 @@ export const en = defineConfig({
                                     {text: "Stage Builder", link: "/en/build/aggregation/stage/introduction"},
                                     {text: "$addFields",link: '/en/build/aggregation/stage/addFields'},
                                     {text: "$bucket",link: '/en/build/aggregation/stage/bucket'},
+                                    {text: "$bucketAuto",link: '/en/build/aggregation/stage/bucketAuto'},
                                 ]
                             }
                         ]

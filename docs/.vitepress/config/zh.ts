@@ -80,6 +80,7 @@ export const zh = defineConfig({
                                     {text: "stage 构建器",link: '/build/aggregation/stage/introduction'},
                                     {text: "$addFields",link: '/build/aggregation/stage/addFields'},
                                     {text: "$bucket",link: '/build/aggregation/stage/bucket'},
+                                    {text: "$bucketAuto",link: '/build/aggregation/stage/bucketAuto'},
                                 ]
                             },
 
