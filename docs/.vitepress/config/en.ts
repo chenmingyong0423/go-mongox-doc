@@ -19,7 +19,7 @@ export const en = defineConfig({
                 collapsed: true,
                 items: [
                     {text: 'What is go-mongox?', link: '/en/introduction/what-is-go-mongox'},
-                    {text: 'Getting Started', link: '/en/introduction/getting-started'}
+                    {text: 'Getting Started', link: '/en/introduction/getting-started'},
                 ]
             },
             {
@@ -76,7 +76,8 @@ export const en = defineConfig({
                                 collapsed: true,
                                 items: [
                                     {text: "Stage Builder", link: "/en/build/aggregation/stage/introduction"},
-                                    {text: "$addFields",link: '/en/build/aggregation/stage/addFields'}
+                                    {text: "$addFields",link: '/en/build/aggregation/stage/addFields'},
+                                    {text: "$bucket",link: '/en/build/aggregation/stage/bucket'},
                                 ]
                             }
                         ]

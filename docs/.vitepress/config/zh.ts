@@ -78,7 +78,8 @@ export const zh = defineConfig({
                                 collapsed: true,
                                 items: [
                                     {text: "stage 构建器",link: '/build/aggregation/stage/introduction'},
-                                    {text: "$addFields",link: '/build/aggregation/stage/addFields'}
+                                    {text: "$addFields",link: '/build/aggregation/stage/addFields'},
+                                    {text: "$bucket",link: '/build/aggregation/stage/bucket'},
                                 ]
                             },
 
