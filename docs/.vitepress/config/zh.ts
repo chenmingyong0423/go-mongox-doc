@@ -77,7 +77,8 @@ export const zh = defineConfig({
                                 text: 'Stage 阶段构建',
                                 collapsed: true,
                                 items: [
-                                    {text: "stage 构建器",link: '/build/aggregation/stage/introduction'}
+                                    {text: "stage 构建器",link: '/build/aggregation/stage/introduction'},
+                                    {text: "$addFields",link: '/build/aggregation/stage/addFields'}
                                 ]
                             },
 

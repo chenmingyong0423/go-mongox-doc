@@ -72,10 +72,11 @@ export const en = defineConfig({
                         items: [
                             {text: 'Aggregation Package', link: '/en/build/aggregation/introduction'},
                             {
-                                "text": "Stage Build",
-                                "collapsed": true,
-                                "items": [
-                                    {"text": "Stage Builder", "link": "/en/build/aggregation/stage/introduction"}
+                                text: "Stage Build",
+                                collapsed: true,
+                                items: [
+                                    {text: "Stage Builder", link: "/en/build/aggregation/stage/introduction"},
+                                    {text: "$addFields",link: '/en/build/aggregation/stage/addFields'}
                                 ]
                             }
                         ]
