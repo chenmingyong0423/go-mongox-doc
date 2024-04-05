@@ -82,6 +82,7 @@ export const zh = defineConfig({
                                     {text: "$bucket",link: '/build/aggregation/stage/bucket'},
                                     {text: "$bucketAuto",link: '/build/aggregation/stage/bucketAuto'},
                                     {text: "$count",link: '/build/aggregation/stage/count'},
+                                    {text: "$facet",link: '/build/aggregation/stage/facet'},
                                 ]
                             },
 
