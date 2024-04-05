@@ -1,7 +1,7 @@
 # 聚合管道阶段 - $bucketAuto
 通过聚合管道阶段构建器 `aggregation.StageBsonBuilder` 的方法 `BucketAuto` 构建 `$bucketAuto` 阶段。
 
-假设我们想将用户分成 4 个年龄组，并对每个组进行一些基本的统计
+假设我们想将用户分成 4 个年龄组，并对每个组进行一些基本的统计。
 
 ```go
 type User struct {

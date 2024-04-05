@@ -79,6 +79,7 @@ export const en = defineConfig({
                                     {text: "$addFields",link: '/en/build/aggregation/stage/addFields'},
                                     {text: "$bucket",link: '/en/build/aggregation/stage/bucket'},
                                     {text: "$bucketAuto",link: '/en/build/aggregation/stage/bucketAuto'},
+                                    {text: "$count",link: '/en/build/aggregation/stage/count'},
                                 ]
                             }
                         ]
