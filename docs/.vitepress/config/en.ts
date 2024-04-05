@@ -81,6 +81,7 @@ export const en = defineConfig({
                                     {text: "$bucketAuto",link: '/en/build/aggregation/stage/bucketAuto'},
                                     {text: "$count",link: '/en/build/aggregation/stage/count'},
                                     {text: "$facet",link: '/en/build/aggregation/stage/facet'},
+                                    {text: "$group",link: '/en/build/aggregation/stage/group'},
                                 ]
                             }
                         ]
