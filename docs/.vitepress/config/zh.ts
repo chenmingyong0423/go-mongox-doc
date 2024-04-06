@@ -85,6 +85,7 @@ export const zh = defineConfig({
                                     {text: "$facet",link: '/build/aggregation/stage/facet'},
                                     {text: "$group",link: '/build/aggregation/stage/group'},
                                     {text: "$limit",link: '/build/aggregation/stage/limit'},
+                                    {text: "$lookup",link: '/build/aggregation/stage/lookup'},
                                 ]
                             },
 

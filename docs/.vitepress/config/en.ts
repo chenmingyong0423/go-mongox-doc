@@ -83,6 +83,7 @@ export const en = defineConfig({
                                     {text: "$facet",link: '/en/build/aggregation/stage/facet'},
                                     {text: "$group",link: '/en/build/aggregation/stage/group'},
                                     {text: "$limit",link: '/en/build/aggregation/stage/limit'},
+                                    {text: "$lookup",link: '/en/build/aggregation/stage/lookup'},
                                 ]
                             }
                         ]
