@@ -89,6 +89,7 @@ export const zh = defineConfig({
                                     {text: "$match",link: '/build/aggregation/stage/match'},
                                     {text: "$project",link: '/build/aggregation/stage/project'},
                                     {text: "$replaceWith",link: '/build/aggregation/stage/replaceWith'},
+                                    {text: "$set",link: '/build/aggregation/stage/set'},
                                 ]
                             },
 
