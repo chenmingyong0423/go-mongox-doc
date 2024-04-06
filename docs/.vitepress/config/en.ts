@@ -85,6 +85,7 @@ export const en = defineConfig({
                                     {text: "$limit",link: '/en/build/aggregation/stage/limit'},
                                     {text: "$lookup",link: '/en/build/aggregation/stage/lookup'},
                                     {text: "$match",link: '/en/build/aggregation/stage/match'},
+                                    {text: "$project",link: '/en/build/aggregation/stage/project'},
                                 ]
                             }
                         ]
