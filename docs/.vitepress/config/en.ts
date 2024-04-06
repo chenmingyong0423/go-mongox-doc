@@ -88,6 +88,7 @@ export const en = defineConfig({
                                     {text: "$project",link: '/en/build/aggregation/stage/project'},
                                     {text: "$replaceWith",link: '/en/build/aggregation/stage/replaceWith'},
                                     {text: "$set",link: '/en/build/aggregation/stage/set'},
+                                    {text: "$skip",link: '/en/build/aggregation/stage/skip'},
                                 ]
                             }
                         ]
