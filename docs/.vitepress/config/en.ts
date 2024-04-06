@@ -91,6 +91,7 @@ export const en = defineConfig({
                                     {text: "$skip",link: '/en/build/aggregation/stage/skip'},
                                     {text: "$sort",link: '/en/build/aggregation/stage/sort'},
                                     {text: "$sortByCount",link: '/en/build/aggregation/stage/sortByCount'},
+                                    {text: "$unwind",link: '/en/build/aggregation/stage/unwind'},
                                 ]
                             }
                         ]

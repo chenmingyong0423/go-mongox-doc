@@ -93,6 +93,7 @@ export const zh = defineConfig({
                                     {text: "$skip",link: '/build/aggregation/stage/skip'},
                                     {text: "$sort",link: '/build/aggregation/stage/sort'},
                                     {text: "$sortByCount",link: '/build/aggregation/stage/sortByCount'},
+                                    {text: "$unwind",link: '/build/aggregation/stage/unwind'},
                                 ]
                             },
 
