@@ -89,6 +89,7 @@ export const en = defineConfig({
                                     {text: "$replaceWith",link: '/en/build/aggregation/stage/replaceWith'},
                                     {text: "$set",link: '/en/build/aggregation/stage/set'},
                                     {text: "$skip",link: '/en/build/aggregation/stage/skip'},
+                                    {text: "$sort",link: '/en/build/aggregation/stage/sort'},
                                 ]
                             }
                         ]
