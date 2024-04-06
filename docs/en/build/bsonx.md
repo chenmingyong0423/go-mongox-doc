@@ -12,6 +12,6 @@ Functions simplify the process of building BSON data.
 ```go
 m := bsonx.M("name", "Mingyong Chen")
 e := bsonx.E("name", "Mingyong Chen")
-d := bsonx.D(bsonx.E("name", "Mingyong Chen"), bsonx.E("name", "Burt"))
+d := bsonx.D("name", "Mingyong Chen")
 a := bsonx.A("Mingyong Chen", "Burt")
 ```

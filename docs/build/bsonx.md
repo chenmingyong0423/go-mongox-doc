@@ -8,8 +8,8 @@ d := bsonx.NewD().Add("name", "Mingyong Chen").Add("name", "Burt")
 ## 函数
 通过函数简化 `BSON` 数据的构建过程。
 ```go
-m := bsonx.M("name", "Mingyong Chen")
-e := bsonx.E("name", "Mingyong Chen")
-d := bsonx.D(bsonx.E("name", "Mingyong Chen"), bsonx.E("name", "Burt"))
-a := bsonx.A("Mingyong Chen", "Burt")
+m := bsonx.M("name", "陈明勇")
+e := bsonx.E("name", "陈明勇")
+d := bsonx.D("name", "陈明勇")
+a := bsonx.A("Mingyong Chen", "陈明勇")
 ```
