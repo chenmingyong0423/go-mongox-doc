@@ -96,7 +96,13 @@ export const zh = defineConfig({
                                     {text: "$unwind",link: '/build/aggregation/stage/unwind'},
                                 ]
                             },
-
+                            {
+                                text: "表达式构建",
+                                collapsed: true,
+                                items: [
+                                    {text: "表达式构建器", link: "/build/aggregation/expression/introduction"},
+                                ]
+                            }
                         ]
                     },
                 ]

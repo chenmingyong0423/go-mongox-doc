@@ -93,6 +93,13 @@ export const en = defineConfig({
                                     {text: "$sortByCount",link: '/en/build/aggregation/stage/sortByCount'},
                                     {text: "$unwind",link: '/en/build/aggregation/stage/unwind'},
                                 ]
+                            },
+                            {
+                                text: "Expression Build",
+                                collapsed: true,
+                                items: [
+                                    {text: "Expression Builder", link: "/en/build/aggregation/expression/introduction"},
+                                ]
                             }
                         ]
                     },
