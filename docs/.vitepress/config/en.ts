@@ -71,6 +71,13 @@ export const en = defineConfig({
                         items: [
                             {text: 'Update Package', link: '/en/build/update/introduction'},
                             {
+                                text: "Field Update Operators",
+                                collapsed: true,
+                                items: [
+                                    {text: "$currentDate", link: "/en/build/update/field/currentDate"}
+                                ]
+                            },
+                            {
                                 text: 'Updating...',
                             }
                         ]

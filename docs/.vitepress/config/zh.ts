@@ -73,6 +73,13 @@ export const zh = defineConfig({
                         items: [
                             {text: 'Update 包', link: '/build/update/introduction'},
                             {
+                                text: "字段更新操作符",
+                                collapsed: true,
+                                items: [
+                                    {text: "$currentDate", link: "/build/update/field/currentDate"}
+                                ]
+                            },
+                            {
                                 text: '更新中...',
                             }
                         ]
