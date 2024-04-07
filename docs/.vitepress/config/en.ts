@@ -124,7 +124,7 @@ export const en = defineConfig({
                                         items: [
                                             {
                                                 text: "$add",
-                                                link: "/build/aggregation/expression/accumulators/add"
+                                                link: "/en/build/aggregation/expression/accumulators/add"
                                             }
                                         ]
                                     },
