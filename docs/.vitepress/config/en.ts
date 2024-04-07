@@ -119,6 +119,16 @@ export const en = defineConfig({
                                 items: [
                                     {text: "Expression Builder", link: "/en/build/aggregation/expression/introduction"},
                                     {
+                                        text: "Accumulator Expression",
+                                        collapsed: true,
+                                        items: [
+                                            {
+                                                text: "$add",
+                                                link: "/build/aggregation/expression/accumulators/add"
+                                            }
+                                        ]
+                                    },
+                                    {
                                         text: 'Updating...',
                                     }
                                 ]

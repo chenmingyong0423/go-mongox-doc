@@ -118,6 +118,16 @@ export const zh = defineConfig({
                                 items: [
                                     {text: "表达式构建器", link: "/build/aggregation/expression/introduction"},
                                     {
+                                        text: "累加器表达式",
+                                        collapsed: true,
+                                        items: [
+                                            {
+                                                text: "$add",
+                                                link: "/build/aggregation/expression/accumulators/add"
+                                            }
+                                        ]
+                                    },
+                                    {
                                         text: '更新中...',
                                     }
                                 ]
