@@ -56,9 +56,15 @@ export const zh = defineConfig({
                                     {text: '$eq', link: '/build/query/comparison/eq'},
                                     {text: '$gt', link: '/build/query/comparison/gt'},
                                     {text: '$gte', link: '/build/query/comparison/gte'},
-                                    {text: '$in', link: '/build/query/comparison/in'}
+                                    {text: '$in', link: '/build/query/comparison/in'},
+                                    {
+                                        text: '更新中...',
+                                    }
                                 ]
                             },
+                            {
+                                text: '更新中...',
+                            }
                         ]
                     },
                     {
@@ -66,6 +72,9 @@ export const zh = defineConfig({
                         collapsed: true,
                         items: [
                             {text: 'Update 包', link: '/build/update/introduction'},
+                            {
+                                text: '更新中...',
+                            }
                         ]
                     },
                     {
@@ -101,6 +110,9 @@ export const zh = defineConfig({
                                 collapsed: true,
                                 items: [
                                     {text: "表达式构建器", link: "/build/aggregation/expression/introduction"},
+                                    {
+                                        text: '更新中...',
+                                    }
                                 ]
                             }
                         ]

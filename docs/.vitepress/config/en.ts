@@ -54,9 +54,15 @@ export const en = defineConfig({
                                     {text: '$eq', link: '/en/build/query/comparison/eq'},
                                     {text: '$gt', link: '/en/build/query/comparison/gt'},
                                     {text: '$gte', link: '/en/build/query/comparison/gte'},
-                                    {text: '$in', link: '/en/build/query/comparison/in'}
+                                    {text: '$in', link: '/en/build/query/comparison/in'},
+                                    {
+                                        text: 'Updating...',
+                                    }
                                 ]
                             },
+                            {
+                                text: 'Updating...',
+                            }
                         ]
                     },
                     {
@@ -64,6 +70,9 @@ export const en = defineConfig({
                         collapsed: true,
                         items: [
                             {text: 'Update Package', link: '/en/build/update/introduction'},
+                            {
+                                text: 'Updating...',
+                            }
                         ]
                     },
                     {
@@ -92,6 +101,9 @@ export const en = defineConfig({
                                     {text: "$sort",link: '/en/build/aggregation/stage/sort'},
                                     {text: "$sortByCount",link: '/en/build/aggregation/stage/sortByCount'},
                                     {text: "$unwind",link: '/en/build/aggregation/stage/unwind'},
+                                    {
+                                        text: 'Updating...',
+                                    }
                                 ]
                             },
                             {
@@ -99,6 +111,9 @@ export const en = defineConfig({
                                 collapsed: true,
                                 items: [
                                     {text: "Expression Builder", link: "/en/build/aggregation/expression/introduction"},
+                                    {
+                                        text: 'Updating...',
+                                    }
                                 ]
                             }
                         ]
