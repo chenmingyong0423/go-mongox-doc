@@ -17,3 +17,5 @@ type User struct {
 - `Upsert`：保存文档
 
 通过整合 `playground/validator` 库，`go mongox` 能够提供强大且灵活的数据校验功能，确保数据的准确性和一致性。
+
+**注意**：只有在初始化插件时将 `EnableValidationHook` 设置为 `true`（详情请参考 [启用内置插件-钩子](../plugins/plugins#启用内置插件-钩子) ）时，校验功能才会生效。

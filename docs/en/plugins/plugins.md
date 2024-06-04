@@ -1,6 +1,24 @@
 # Plugin
 `go mongox` supports plugin programming, providing a flexible way to insert custom logic before and after database operations, thereby enhancing the scalability and maintainability of applications.
 
+## Enabling Built-in Plugins (Hooks)
+The `go mongox` library comes with three useful built-in `hook` plugins (implemented based on plugins):
+- `field` hook: Automates the update of the default `field` field
+- `model` hook: Sets up hook functions for models (structs), which are called before and after collection operations in `MongoDB`.
+- `validator` hook: Uses struct tags (`tag`) to validate field values.
+
+The `go mongox` library does not activate these hooks by default. If you want to activate them, you can refer to the following code:
+
+```go
+mongox.InitPlugin(&mongox.PluginConfig{
+    EnableDefaultFieldHook: true,
+    EnableModelHook:        true,
+    EnableValidationHook:   true,
+    // Override the default validator, effective when EnableValidationHook is true
+    Validate: nil,
+})
+```
+
 ## Plugin Registration and Removal
 `go mongox` provides the `RegisterPlugin` and `UnregisterPlugin` methods to register and remove plugins.
 

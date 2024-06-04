@@ -16,6 +16,7 @@ The currently supported hook functions include:
 
 Given MongoDB's document-oriented database characteristics and that some operations do not map directly to structs, `go mongox` does not provide hook functions for delete and update operations. If you have requirements in this area, you can implement them using the [one-time hook](./one-time-hooks) or [plugin](../plugins/plugins) features provided by `go mongox`.
 
+**Note**: The model hook will only take effect if `EnableModelHook` is set to `true` when initializing the plugin (for details, please refer to [Enabling Built-in Plugins - Hooks](../plugins/plugins#enabling-built-in-plugins-hooks)).
 ## Insert Hook
 If you want to process documents before and after inserting them, you can implement the following specific hook methods:
 ```go

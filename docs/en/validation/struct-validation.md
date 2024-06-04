@@ -17,3 +17,5 @@ This validation feature is currently applicable to the following API operations:
 - `Upsert`: Save a document
 
 By integrating the `playground/validator` library, `go mongox` provides powerful and flexible data validation to ensure accuracy and consistency of data.
+
+**Note**: The validation feature will only take effect if `EnableValidationHook` is set to `true` when initializing the plugin (for details, please refer to [Enabling Built-in Plugins - Hooks](../plugins/plugins#enabling-built-in-plugins-hooks)).

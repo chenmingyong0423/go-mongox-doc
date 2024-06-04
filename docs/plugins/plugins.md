@@ -1,6 +1,24 @@
 # 插件化编程
 `go mongox` 支持插件化编程，它提供了一种灵活的方式在数据库操作的前后插入自定义的逻辑，从而增强应用的可扩展性和可维护性。
 
+## 启用内置插件（钩子）
+`go mongox` 库内置了三个实用的 `hook` 钩子（基于插件实现）：
+- `field` 钩子：自动化更新默认的 `field` 字段
+- `model` 钩子：针对模型（结构体）设置钩子函数，这些钩子函数会在 `MongoDB` 的集合操作前后被调用。
+- `validator` 钩子：利用结构体的标签（`tag`）去对字段值进行校验。
+
+`go mongox` 库默认不激活这些钩子，如果你想激活它们，可以参考以下代码：
+
+```go
+mongox.InitPlugin(&mongox.PluginConfig{
+	EnableDefaultFieldHook: true,
+	EnableModelHook:        true,
+	EnableValidationHook:   true,
+	// 覆盖默认的校验器，当 EnableValidationHook 为 true 时生效
+	Validate: nil,
+})
+```
+
 ## 插件的注册与删除
 `go mongox` 提供了 `RegisterPlugin` 和 `UnregisterPlugin` 方法来注册和删除插件。
 

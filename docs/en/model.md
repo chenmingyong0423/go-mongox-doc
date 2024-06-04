@@ -24,7 +24,7 @@ func (m *Model) DefaultUpdatedAt() {
 }
 ```
 
-This struct facilitates automatic handling of document creation and update operations by implementing the `DefaultModelHook` interface. 
+This struct implements the `DefaultModelHook` interface. If `EnableDefaultFieldHook` is set to `true` when initializing the plugin (for details, please refer to [Enabling Built-in Plugins - Hooks](./plugins/plugins#enabling-built-in-plugins-hooks)), the `go mongox` library will automatically handle the assignment of `ID` and timestamps during document creation and update operations.
 
 Specifically, during document creation(`InsertOne, InsertMany`), the `DefaultId()` and `DefaultCreatedAt()` methods are invoked to initialize the `ID` and `CreatedAt` fields, respectively. For document updates(`UpdateOne`、`UpdateMany`、`UpdatesWithOperator`), the `DefaultUpdatedAt()` method is called to refresh the `UpdatedAt` field. When performing save (`Upsert`) operations, all three methods are executed to ensure that all pertinent fields are properly initialized or updated.
 
