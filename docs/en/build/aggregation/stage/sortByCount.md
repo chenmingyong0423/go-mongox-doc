@@ -1,5 +1,5 @@
 # Aggregation Pipeline Stage - $sortByCount
-Build the `$sortByCount` stage through the aggregation pipeline stage builder `aggregation.StageBsonBuilder` using the method `SortByCount`.
+Build the `$sortByCount` stage through the aggregation pipeline stage builder `aggregation.NewStageBuilder` using the method `SortByCount`.
 
 ```go
 type User struct {
@@ -14,5 +14,5 @@ type User struct {
 //    "$sortByCount": "$age"
 //  }
 //]
-aggregation.StageBsonBuilder().SortByCount("$age").Build()
+aggregation.NewStageBuilder().SortByCount("$age").Build()
 ```

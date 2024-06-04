@@ -1,5 +1,5 @@
 # Aggregation Pipeline Stage - $bucket
-Build the `$bucket` stage through the aggregation pipeline stage builder `aggregation.StageBsonBuilder` using the method `Bucket`.
+Build the `$bucket` stage through the aggregation pipeline stage builder `aggregation.NewStageBuilder` using the method `Bucket`.
 
 
 Suppose we want to group users into different age groups:
@@ -29,12 +29,12 @@ type User struct {
 //    }
 //  }
 //]
-aggregation.StageBsonBuilder().Bucket(
+aggregation.NewStageBuilder().Bucket(
     "$age",
     []any{0, 19, 31, 46, math.Inf(1)},
     &types.BucketOptions{
         DefaultKey: "Other",
-        Output:     aggregation.BsonBuilder().Sum("count", 1).Push("names", "$name").Build(),
+        Output:     aggregation.NewBuilder().Sum("count", 1).Push("names", "$name").Build(),
     },
 ).Build()
 ```

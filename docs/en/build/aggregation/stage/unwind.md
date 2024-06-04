@@ -1,5 +1,5 @@
 # Aggregation Pipeline Stage - $unwind
-Build the `$unwind` stage through the aggregation pipeline stage builder `aggregation.StageBsonBuilder` using the method `Unwind`.
+Build the `$unwind` stage through the aggregation pipeline stage builder `aggregation.NewStageBuilder` using the method `Unwind`.
 
 ```go
 type User struct {
@@ -15,7 +15,7 @@ type User struct {
 //    "$unwind": "$hobbies"
 //  }
 //]
-aggregation.StageBsonBuilder().Unwind("$hobbies", nil).Build()
+aggregation.NewStageBuilder().Unwind("$hobbies", nil).Build()
 ```
 
 The `Unwind` method has two parameters: `path string` and `opt *types.UnWindOptions`. The `opt` parameter is optional and can be `nil`. It is used to specify the `includeArrayIndex` and `preserveNullAndEmptyArrays` options.

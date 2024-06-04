@@ -1,5 +1,5 @@
 # Aggregation Pipeline Stage - $count
-Build the `$count` stage through the aggregation pipeline stage builder `aggregation.StageBsonBuilder` using the method `Count`.
+Build the `$count` stage through the aggregation pipeline stage builder `aggregation.NewStageBuilder` using the method `Count`.
 
 Suppose we want to know how many total user records there are in the collection:
 
@@ -16,5 +16,5 @@ type User struct {
 //    "$count": "totalUsers"
 //  }
 // ]
-aggregation.StageBsonBuilder().Count("totalUsers").Build()
+aggregation.NewStageBuilder().Count("totalUsers").Build()
 ```

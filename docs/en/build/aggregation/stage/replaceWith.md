@@ -1,5 +1,5 @@
 # Aggregation Pipeline Stage - $replaceWith
-Build the `$replaceWith` stage through the aggregation pipeline stage builder `aggregation.StageBsonBuilder` using the method `ReplaceWith`.
+Build the `$replaceWith` stage through the aggregation pipeline stage builder `aggregation.NewStageBuilder` using the method `ReplaceWith`.
 Suppose we want to replace each `User` document with a new document that only contains the user's `name` and a new field `isAdult`, where the `isAdult` field indicates whether the user is an adult.
 
 ```go
@@ -25,7 +25,7 @@ type User struct {
 //    }
 //  }
 //]
-aggregation.StageBsonBuilder().
+aggregation.NewStageBuilder().
     AddFields(aggregation.Gte("isAdult", "$age", 18)).
     ReplaceWith(bsonx.NewD().Add("name", "$name").Add("isAdult", "$isAdult").Build()).Build()
 ```

@@ -12,12 +12,12 @@ This article demonstrates the usage of these three methods through two examples.
 ```go
 // Ignoring the age field, query only by name
 users, err := userColl.Aggregator().
-    Pipeline(aggregation.StageBsonBuilder().Project(bsonx.M("age", 0)).Build()).
+    Pipeline(aggregation.NewStageBuilder().Project(bsonx.M("age", 0)).Build()).
     Aggregate(context.Background())
 ```
 The `Pipeline()` method is for setting up the **pipeline**, and the `Aggregate()` method executes the aggregation operation.
 
-By using the `StageBsonBuilder()` builder from the `aggregation` package, we have built a `Project` stage to exclude the `age` field.
+By using the `NewStageBuilder()` builder from the `aggregation` package, we have built a `Project` stage to exclude the `age` field.
 
 ## Renaming Fields
 ```go
@@ -29,7 +29,7 @@ type RealUser struct {
 }
 var results []*RealUser
 err := userColl.Aggregator().
-    Pipeline(aggregation.StageBsonBuilder().Project(
+    Pipeline(aggregation.NewStageBuilder().Project(
         bsonx.NewD().Add("real_name", "$name").Add("age", 1).Build(),
     ).Build()).
     AggregateWithParse(context.Background(), &results)

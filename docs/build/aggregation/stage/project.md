@@ -1,5 +1,5 @@
 # 聚合管道阶段 - $project
-通过聚合管道阶段构建器 `aggregation.StageBsonBuilder` 的方法 `Project` 构建 `$project` 阶段。
+通过聚合管道阶段构建器 `aggregation.NewStageBuilder` 的方法 `Project` 构建 `$project` 阶段。
 
 ```go
 type User struct {
@@ -20,8 +20,8 @@ type User struct {
 //    }
 //  }
 //]
-aggregation.StageBsonBuilder().Project(
-    aggregation.BsonBuilder().AddKeyValues("_id", 0).
+aggregation.NewStageBuilder().Project(
+    aggregation.NewBuilder().AddKeyValues("_id", 0).
         AddKeyValues("name", 1).
         Gte("isAdult", "$age", 18).Build(),
 ).Build()

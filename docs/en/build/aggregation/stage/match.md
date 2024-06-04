@@ -1,5 +1,5 @@
 # Aggregation Pipeline Stage - $match
-Build the `$match` stage through the aggregation pipeline stage builder `aggregation.StageBsonBuilder` using the method `Match`.
+Build the `$match` stage through the aggregation pipeline stage builder `aggregation.NewStageBuilder` using the method `Match`.
 
 ```go
 type User struct {
@@ -16,5 +16,5 @@ type User struct {
 //    }
 //  }
 //]
-aggregation.StageBsonBuilder().Match(aggregation.Gt("age", 18)).Build()
+aggregation.NewStageBuilder().Match(aggregation.Gt("age", 18)).Build()
 ```

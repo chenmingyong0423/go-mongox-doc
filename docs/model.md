@@ -2,7 +2,7 @@
 `go mongox`内置了一个`Model`结构体，它包含了`ID`、`CreatedAt`和`UpdatedAt`三个字段。
 ```go
 type Model struct {
-	ID        primitive.ObjectID `bson:"_id"`
+	ID        primitive.ObjectID `bson:"_id,omitempty"`
 	CreatedAt time.Time          `bson:"created_at"`
 	UpdatedAt time.Time          `bson:"updated_at"`
 }

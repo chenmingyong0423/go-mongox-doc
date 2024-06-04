@@ -32,5 +32,5 @@ aggregation.Add("total", "$price", "$fee")
      }
    }
 */
-aggregation.BsonBuilder().Add("total", "$price", "$fee").Build()
+aggregation.NewBuilder().Add("total", "$price", "$fee").Build()
 ```

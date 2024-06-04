@@ -18,7 +18,7 @@ users, err := userColl.Finder().Filter(query.In("_id", "60e96214a21b1b0001c3d69e
 ## Count document
 ```go
 count, err := userColl.Finder().
-		Filter(query.BsonBuilder().Gt("age", 18).Lt("age", 24).Build()).
+		Filter(query.NewBuilder().Gt("age", 18).Lt("age", 24).Build()).
 		Count(context.Background())
 ```
 - The `Count` method is used to count the number of documents. `count` is of type `int64`.

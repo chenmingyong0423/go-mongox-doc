@@ -1,5 +1,5 @@
 # 聚合管道阶段 - $facet
-通过聚合管道阶段构建器 `aggregation.StageBsonBuilder` 的方法 `Facet` 构建 `$facet` 阶段。
+通过聚合管道阶段构建器 `aggregation.NewStageBuilder` 的方法 `Facet` 构建 `$facet` 阶段。
 
 假设我们想基于 `User` 集合执行以下操作：
 
@@ -32,18 +32,18 @@ type User struct {
 //    }
 //  }
 // ]
-aggregation.StageBsonBuilder().Facet(
+aggregation.NewStageBuilder().Facet(
     bsonx.NewD().
-        Add("totalUsers", aggregation.StageBsonBuilder().Count("totalUsers").Build()).
+        Add("totalUsers", aggregation.NewStageBuilder().Count("totalUsers").Build()).
         Add(
             "ageGroups",
-            aggregation.StageBsonBuilder().
+            aggregation.NewStageBuilder().
                 Group("$age", aggregation.Sum("count", 1)...).
                 Sort(bsonx.D("_id", 1)).Build(),
         ).
         Add(
             "over18",
-            aggregation.StageBsonBuilder().
+            aggregation.NewStageBuilder().
                 Match(aggregation.Gt("age", 18)).
                 Project(bsonx.NewD().Add("name", 1).Add("age", 1).Build()).Build()).
         Build(),

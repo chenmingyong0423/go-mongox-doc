@@ -10,7 +10,7 @@ query.In("name", "Mingyong Chen", "Burt")
 Build the `in` query condition using the `Builder` builder provided by the `query` package.
 ```go
 // bson.D{bson.E{Key:"enabled", Value:bson.D{bson.E{Key:"$eq", Value:true}}}, bson.E{Key:"name", Value:bson.D{bson.E{Key :"$in", Value:[]interface {}{"Mingyong Chen", "Burt"}}}}}
-query.BsonBuilder().Eq("enabled", true).In("name", "Mingyong Chen", "Burt").Build()
+query.NewBuilder().Eq("enabled", true).In("name", "Mingyong Chen", "Burt").Build()
 ```
 The builder provided by the `query` package is suitable for building composite query conditions.
 

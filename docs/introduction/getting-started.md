@@ -63,7 +63,7 @@
   updateResult, err := userColl.Updater().Filter(query.Eq("name", "chenmingyong")).Updates(update.Set("name", "burt")).UpdateOne(context.Background())
   // 更新多个文档
   updateResult, err := userColl.Updater().
-      Filter(query.BsonBuilder().Gt("age", 18).Lt("age", 25).Build()).Updates(update.Set("name", "burt")).
+      Filter(query.NewBuilder().Gt("age", 18).Lt("age", 25).Build()).Updates(update.Set("name", "burt")).
       UpdateOne(context.Background())
   // Upsert
   updateResult, err := userColl.Updater().Filter(query.Id("60e96214a21b1b0001c3d69e")).Replacement(&User{Name: "chenmingyong", "age": 24}).Upsert(context.Background())
@@ -83,7 +83,7 @@
   ```go
   // 聚合查询
   users, err := userColl.Aggregator().
-      Pipeline(aggregation.StageBsonBuilder().Project(bsonx.M("age", 0)).Build()).
+      Pipeline(aggregation.NewStageBuilder().Project(bsonx.M("age", 0)).Build()).
       Aggregate(context.Background())
   
   // 聚合查询并解析结果
@@ -95,7 +95,7 @@
   }
   var results []*RealUser
   err := userColl.Aggregator().
-      Pipeline(aggregation.StageBsonBuilder().Project(
+      Pipeline(aggregation.NewStageBuilder().Project(
           bsonx.NewD().Add("real_name", "$name").Add("age", 1).Build(),
       ).Build()).
       AggregateWithParse(context.Background(), &results)
@@ -138,16 +138,16 @@
   
   // 通过构建器构建
   // bson.D{bson.E{Key:"age", Value:bson.D{{Key:"$gt", Value:18}, bson.E{Key:"$lt", Value:25}}}}
-  d = query.BsonBuilder().Gt("age", 18).Lt("age", 25).Build()
+  d = query.NewBuilder().Gt("age", 18).Lt("age", 25).Build()
   
   // bson.d{bson.E{Key: "$and", Value: []any{bson.D{{Key: "x", Value: bson.D{{Key: "$ne", Value: 0}}}}, bson.D{{Key: "y", Value: bson.D{{Key: "$gt", Value: 0}}}}}}
-  d = query.BsonBuilder().And(
-      query.BsonBuilder().Ne("x", 0).Build(),
-      query.BsonBuilder().Gt("y", 0).Build(),
+  d = query.NewBuilder().And(
+      query.NewBuilder().Ne("x", 0).Build(),
+      query.NewBuilder().Gt("y", 0).Build(),
   ).Build()
   
   // bson.D{bson.E{Key:"qty", Value:bson.D{{Key:"$exists", Value:true}, bson.E{Key:"$nin", Value:[]int{5, 15}}}}}
-  d = query.BsonBuilder().Exists("qty", true).NinInt("qty", 5, 15).Build()
+  d = query.NewBuilder().Exists("qty", true).NinInt("qty", 5, 15).Build()
   ```
   更多关于 `query` 包的操作请参考 [query 查询构建](../build/query/introduction)。
 - update：更新语句构建
@@ -157,16 +157,16 @@
   u := update.Set("name", "陈明勇")
   
   // bson.D{bson.E{Key:"$inc", Value:bson.D{bson.E{Key:"ratings", Value:-1}}}}
-  u = update.BsonBuilder().Inc("ratings", -1).Build()
+  u = update.NewBuilder().Inc("ratings", -1).Build()
   
   // bson.D{bson.E{Key:"$push", Value:bson.M{"scores":95}}}
-  u = update.BsonBuilder().Push("scores", 95).Build()
+  u = update.NewBuilder().Push("scores", 95).Build()
   
   // 通过构建器构建
   // bson.D{bson.E{Key:"$set", Value:bson.D{bson.E{Key:"name", Value:"陈明勇"}, bson.E{Key:"sex", Value:"男"}}}}
-  u = update.BsonBuilder().Set("name", "陈明勇").Set("sex", "男").Build()
+  u = update.NewBuilder().Set("name", "陈明勇").Set("sex", "男").Build()
   // bson.D{bson.E{Key:"$set", Value:bson.D{bson.E{Key:"name", Value:"陈明勇"}}}, bson.E{Key:"$inc", Value:bson.D{bson.E{Key:"rating Value:-1}}}, bson.E{Key:"$push", Value:bson.D{bson.E{Key:"scores", Value:95}}}}
-  u = update.BsonBuilder().Set("name", "陈明勇").Inc("ratings", -1).Push("scores", 95).Build()
+  u = update.NewBuilder().Set("name", "陈明勇").Inc("ratings", -1).Push("scores", 95).Build()
   ```
   更多关于 `update` 包的操作请参考 [update 更新构建](../build/update/introduction)。
 
@@ -176,23 +176,23 @@
   gt := aggregation.Gt("total", []any{"$price", "$fee"}...)
   
   // mongo.Pipeline{bson.D{bson.E{Key:"$project", Value:bson.D{bson.E{Key:"name", Value:1}, bson.E{Key:"qtyGt250", Value:bson.D{bson.E{Key:"total", Value:bson.D{bson.E{Key:"$gt", Value:[]interface {}{"$price", "$fee"}}}}}}}}}}
-  pipeline := aggregation.StageBsonBuilder().
+  pipeline := aggregation.NewStageBuilder().
       Project(bsonx.NewD().Add("name", 1).Add("qtyGt250", gt).Build()).
       Build()
   
   // bson.D{bson.E{Key:"result", Value:bson.D{bson.E{Key:"$or", Value:[]interface {}{bson.D{bson.E{Key:"$gt", Value:[]interface {}{"score", 70}}, bson.E{Key:"score", Value:bson.D{bson.E{Key:"$lt", Value:[]interface {}{90}}}}}, bson.D{bson.E{Key:"views", Value:bson.D{bson.E{Key:"$gte", Value:[]interface {}{90}}}}}}}}}}
-  or := aggregation.BsonBuilder().Or("result", aggregation.BsonBuilder().GtWithoutKey("score", 70).Lt("score", 90).Build(), aggregation.BsonBuilder().Gte("views", 90).Build()).Build()
+  or := aggregation.NewBuilder().Or("result", aggregation.NewBuilder().GtWithoutKey("score", 70).Lt("score", 90).Build(), aggregation.NewBuilder().Gte("views", 90).Build()).Build()
   
   // mongo.Pipeline{bson.D{bson.E{Key:"$match", Value:bson.D{bson.E{Key:"result", Value:bson.D{bson.E{Key:"$or", Value:[]interface {}{bson.D{bson.E{Key:"$gt", Value:[]interface {}{"score", 70}}, bson.E{Key:"score", Value:bson.D{bson.E{Key:"$lt", Value:[]interface {}{90}}}}}, bson.D{bson.E{Key:"views", Value:bson.D{bson.E{Key:"$gte", Value:[]interface {}{90}}}}}}}}}}}}, bson.D{bson.E{Key:"$group", Value:bson.D{bson.E{Key:"_id", Value:interface {}(nil)}, bson.E{Key:"count", Value:bson.D{bson.E{Key:"$sum", Value:1}}}}}}}
-  pipeline = aggregation.StageBsonBuilder().
+  pipeline = aggregation.NewStageBuilder().
       Match(or).
       Group(nil, aggregation.Sum("count", 1)...).Build()
   
   // mongo.Pipeline{bson.D{bson.E{Key:"$unwind", Value:"$size"}}}
-  pipeline = aggregation.StageBsonBuilder().Unwind("$size", nil).Build()
+  pipeline = aggregation.NewStageBuilder().Unwind("$size", nil).Build()
   
   // mongo.Pipeline{bson.D{bson.E{Key:"$unwind", Value:bson.D{bson.E{Key:"path", Value:"$size"}, bson.E{Key:"includeArrayIndex", Value:"arrayIndex"}, bson.E{Key:"preserveNullAndEmptyArrays", Value:true}}}}}
-  pipeline = aggregation.StageBsonBuilder().Unwind("$size", &types.UnWindOptions{
+  pipeline = aggregation.NewStageBuilder().Unwind("$size", &types.UnWindOptions{
       IncludeArrayIndex:          "arrayIndex",
       PreserveNullAndEmptyArrays: true,
   }).Build()

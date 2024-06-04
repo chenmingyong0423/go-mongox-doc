@@ -1,5 +1,5 @@
 # 聚合管道阶段 - $sortByCount
-通过聚合管道阶段构建器 `aggregation.StageBsonBuilder` 的方法 `SortByCount` 构建 `$sortByCount` 阶段。
+通过聚合管道阶段构建器 `aggregation.NewStageBuilder` 的方法 `SortByCount` 构建 `$sortByCount` 阶段。
 
 ```go
 type User struct {
@@ -14,5 +14,5 @@ type User struct {
 //    "$sortByCount": "$age"
 //  }
 //]
-aggregation.StageBsonBuilder().SortByCount("$age").Build()
+aggregation.NewStageBuilder().SortByCount("$age").Build()
 ```

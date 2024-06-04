@@ -1,5 +1,5 @@
 # 聚合管道阶段 - $bucket
-通过聚合管道阶段构建器 `aggregation.StageBsonBuilder` 的方法 `Bucket` 构建 `$bucket` 阶段。
+通过聚合管道阶段构建器 `aggregation.NewStageBuilder` 的方法 `Bucket` 构建 `$bucket` 阶段。
 
 假设我们想要根据年龄将用户分为几个不同的年龄组：
 - 18岁及以下
@@ -28,12 +28,12 @@ type User struct {
 //    }
 //  }
 //]
-aggregation.StageBsonBuilder().Bucket(
+aggregation.NewStageBuilder().Bucket(
     "$age",
     []any{0, 19, 31, 46, math.Inf(1)},
     &types.BucketOptions{
         DefaultKey: "Other",
-        Output:     aggregation.BsonBuilder().Sum("count", 1).Push("names", "$name").Build(),
+        Output:     aggregation.NewBuilder().Sum("count", 1).Push("names", "$name").Build(),
     },
 ).Build()
 ```

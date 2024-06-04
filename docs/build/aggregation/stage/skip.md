@@ -1,5 +1,5 @@
 # 聚合管道阶段 - $skip
-通过聚合管道阶段构建器 `aggregation.StageBsonBuilder` 的方法 `Skip` 构建 `$skip` 阶段。
+通过聚合管道阶段构建器 `aggregation.NewStageBuilder` 的方法 `Skip` 构建 `$skip` 阶段。
 
 ```go
 type User struct {
@@ -14,5 +14,5 @@ type User struct {
 //    "$skip": 10
 //  }
 //]
-aggregation.StageBsonBuilder().Skip(10).Build()
+aggregation.NewStageBuilder().Skip(10).Build()
 ```

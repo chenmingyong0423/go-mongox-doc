@@ -1,5 +1,5 @@
 # Aggregation Pipeline Stage - $lookup
-Build the `$lookup` stage through the aggregation pipeline stage builder `aggregation.StageBsonBuilder` using the method `Lookup`.
+Build the `$lookup` stage through the aggregation pipeline stage builder `aggregation.NewStageBuilder` using the method `Lookup`.
 
 ## Basic Usage
 Suppose we want to find orders in the `orders` collection that correspond to each user in the `users` collection and add the found orders as an array to each user document.
@@ -22,7 +22,7 @@ type User struct {
 //    }
 //  }
 //]
-aggregation.StageBsonBuilder().Lookup("orders", "userOrders", &aggregation.LookUpOptions{
+aggregation.NewStageBuilder().Lookup("orders", "userOrders", &aggregation.LookUpOptions{
     LocalField:   "_id",
     ForeignField: "userId",
 }).Build()
@@ -66,9 +66,9 @@ type Order struct {
 //    }
 //  }
 //]
-aggregation.StageBsonBuilder().Lookup("orders", "largeOrders", &aggregation.LookUpOptions{
+aggregation.NewStageBuilder().Lookup("orders", "largeOrders", &aggregation.LookUpOptions{
     Let: bsonx.D("userId", "$_id"),
-    Pipeline: aggregation.StageBsonBuilder().Match(
+    Pipeline: aggregation.NewStageBuilder().Match(
         aggregation.And("$expr", aggregation.EqWithoutKey("$userId", "$$userId"), aggregation.GtWithoutKey("$totalAmount", 100)),
     ).Build(),
 }).Build()
@@ -92,7 +92,7 @@ type User struct {
 //    }
 //  }
 //]
-aggregation.StageBsonBuilder().Lookup("orders", "userOrders", &aggregation.LookUpOptions{
+aggregation.NewStageBuilder().Lookup("orders", "userOrders", &aggregation.LookUpOptions{
     LocalField:   "_id",
     ForeignField: "userId",
 }).Build()

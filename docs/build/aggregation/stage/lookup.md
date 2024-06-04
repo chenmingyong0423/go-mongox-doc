@@ -1,5 +1,5 @@
 # 聚合管道阶段 - $lookup
-通过聚合管道阶段构建器 `aggregation.StageBsonBuilder` 的方法 `Lookup` 构建 `$lookup` 阶段。
+通过聚合管道阶段构建器 `aggregation.NewStageBuilder` 的方法 `Lookup` 构建 `$lookup` 阶段。
 
 ## 基础用法
 假设我们要在 `orders` 集合中查找与 `users` 集合中每个用户相对应的订单，并将查找到的订单以数组形式添加到每个用户文档中。
@@ -22,7 +22,7 @@ type User struct {
 //    }
 //  }
 //]
-aggregation.StageBsonBuilder().Lookup("orders", "userOrders", &aggregation.LookUpOptions{
+aggregation.NewStageBuilder().Lookup("orders", "userOrders", &aggregation.LookUpOptions{
     LocalField:   "_id",
     ForeignField: "userId",
 }).Build()
@@ -66,9 +66,9 @@ type Order struct {
 //    }
 //  }
 //]
-aggregation.StageBsonBuilder().Lookup("orders", "largeOrders", &aggregation.LookUpOptions{
+aggregation.NewStageBuilder().Lookup("orders", "largeOrders", &aggregation.LookUpOptions{
     Let: bsonx.D("userId", "$_id"),
-    Pipeline: aggregation.StageBsonBuilder().Match(
+    Pipeline: aggregation.NewStageBuilder().Match(
         aggregation.And("$expr", aggregation.EqWithoutKey("$userId", "$$userId"), aggregation.GtWithoutKey("$totalAmount", 100)),
     ).Build(),
 }).Build()

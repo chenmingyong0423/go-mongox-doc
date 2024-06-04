@@ -1,5 +1,5 @@
 # Aggregation Pipeline Stage - $set
-Build the `$set` stage through the aggregation pipeline stage builder `aggregation.StageBsonBuilder` using the method `Set`.
+Build the `$set` stage through the aggregation pipeline stage builder `aggregation.NewStageBuilder` using the method `Set`.
 
 ```go
 type User struct {
@@ -21,8 +21,8 @@ type User struct {
 //   }
 // }
 //]
-aggregation.StageBsonBuilder().Set(
-    aggregation.BsonBuilder().
+aggregation.NewStageBuilder().Set(
+    aggregation.NewBuilder().
         // If age is greater than or equal to 18, isAdult is true
         Gte("isAdult", "$age", 18).
         // Calculate the birth year

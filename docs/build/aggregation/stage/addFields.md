@@ -1,5 +1,5 @@
 # 聚合管道阶段 - $addFields
-通过聚合管道阶段构建器 `aggregation.StageBsonBuilder` 的方法 `AddFields` 构建 `$addFields` 阶段。
+通过聚合管道阶段构建器 `aggregation.NewStageBuilder` 的方法 `AddFields` 构建 `$addFields` 阶段。
 ```go
 type User struct {
 	mongox.Model `bson:"inline"`
@@ -20,8 +20,8 @@ type User struct {
 //    }
 //  }
 //]
-aggregation.StageBsonBuilder().AddFields(
-    aggregation.BsonBuilder().
+aggregation.NewStageBuilder().AddFields(
+    aggregation.NewBuilder().
         // 如果年龄大于或等于 18，isAdult 为 true
         Gte("isAdult", "$age", 18).
         // 计算出生年份

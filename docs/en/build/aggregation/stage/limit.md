@@ -1,5 +1,5 @@
 # Aggregation Pipeline Stage - $limit
-Build the `$limit` stage through the aggregation pipeline stage builder `aggregation.StageBsonBuilder` using the method `Limit`.
+Build the `$limit` stage through the aggregation pipeline stage builder `aggregation.NewStageBuilder` using the method `Limit`.
 
 ```go
 type User struct {
@@ -14,5 +14,5 @@ type User struct {
 //    "$limit": 5
 //  }
 //]
-aggregation.StageBsonBuilder().Limit(5).Build()
+aggregation.NewStageBuilder().Limit(5).Build()
 ```

@@ -1,5 +1,5 @@
 # 聚合管道阶段 - $match
-通过聚合管道阶段构建器 `aggregation.StageBsonBuilder` 的方法 `Match` 构建 `$match` 阶段。
+通过聚合管道阶段构建器 `aggregation.NewStageBuilder` 的方法 `Match` 构建 `$match` 阶段。
 
 ```go
 type User struct {
@@ -16,5 +16,5 @@ type User struct {
 //    }
 //  }
 //]
-aggregation.StageBsonBuilder().Match(aggregation.Gt("age", 18)).Build()
+aggregation.NewStageBuilder().Match(aggregation.Gt("age", 18)).Build()
 ```

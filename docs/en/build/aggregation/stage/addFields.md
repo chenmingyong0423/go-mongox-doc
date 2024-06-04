@@ -1,5 +1,5 @@
 # Aggregation Pipeline Stage - $addFields
-Build the `$addFields` stage through the aggregation pipeline stage builder `aggregation.StageBsonBuilder` using the method `AddFields`.
+Build the `$addFields` stage through the aggregation pipeline stage builder `aggregation.NewStageBuilder` using the method `AddFields`.
 
 ```go
 type User struct {
@@ -21,8 +21,8 @@ type User struct {
 //    }
 //  }
 //]
-aggregation.StageBsonBuilder().AddFields(
-    aggregation.BsonBuilder().
+aggregation.NewStageBuilder().AddFields(
+    aggregation.NewBuilder().
         // If age is greater than or equal to 18, isAdult is true
         Gte("isAdult", "$age", 18).
         // Calculate the birth year

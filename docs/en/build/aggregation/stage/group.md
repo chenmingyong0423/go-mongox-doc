@@ -1,5 +1,5 @@
 # Aggregation Pipeline Stage - $group
-Build the `$group` stage through the aggregation pipeline stage builder `aggregation.StageBsonBuilder` using the method `Group`.
+Build the `$group` stage through the aggregation pipeline stage builder `aggregation.NewStageBuilder` using the method `Group`.
 
 Suppose we want to group by age, and for each age group, we want to count how many users there are and also gather a list of names of users in each age group:
 
@@ -20,8 +20,8 @@ type User struct {
 //    }
 //  }
 //]
-aggregation.StageBsonBuilder().Group("$age",
-    aggregation.BsonBuilder().Sum("count", 1).Push("names", "$name").Build()...,
+aggregation.NewStageBuilder().Group("$age",
+    aggregation.NewBuilder().Sum("count", 1).Push("names", "$name").Build()...,
 ).Build()
 ```
 

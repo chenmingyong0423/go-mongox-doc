@@ -1,5 +1,5 @@
 # 聚合管道阶段 - $group
-通过聚合管道阶段构建器 `aggregation.StageBsonBuilder` 的方法 `Group` 构建 `$group` 阶段。
+通过聚合管道阶段构建器 `aggregation.NewStageBuilder` 的方法 `Group` 构建 `$group` 阶段。
 
 假设我们想根据年龄来分组，并计算每个年龄组有多少用户，同时获取每个年龄组中用户的名称列表
 
@@ -20,8 +20,8 @@ type User struct {
 //    }
 //  }
 //]
-aggregation.StageBsonBuilder().Group("$age",
-    aggregation.BsonBuilder().Sum("count", 1).Push("names", "$name").Build()...,
+aggregation.NewStageBuilder().Group("$age",
+    aggregation.NewBuilder().Sum("count", 1).Push("names", "$name").Build()...,
 ).Build()
 ```
 

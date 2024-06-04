@@ -1,5 +1,5 @@
 # Aggregation Pipeline Stage - $bucketAuto
-Build the `$bucketAuto` stage through the aggregation pipeline stage builder `aggregation.StageBsonBuilder` using the method `BucketAuto`.
+Build the `$bucketAuto` stage through the aggregation pipeline stage builder `aggregation.NewStageBuilder` using the method `BucketAuto`.
 
 Suppose we want to divide users into 4 age groups and perform some basic statistics on each group:
 
@@ -24,11 +24,11 @@ type User struct {
 //    }
 //  }
 //]
-aggregation.StageBsonBuilder().BucketAuto(
+aggregation.NewStageBuilder().BucketAuto(
     "$age",
     4,
     &types.BucketAutoOptions{
-        Output: aggregation.BsonBuilder().
+        Output: aggregation.NewBuilder().
             Sum("count", 1).
             Avg("averageAge", "$age").
             Push("names", "$name").Build(),

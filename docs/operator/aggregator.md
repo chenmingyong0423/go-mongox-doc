@@ -12,12 +12,12 @@
 ```go
 // 忽略年龄字段，只查询名字
 users, err := userColl.Aggregator().
-    Pipeline(aggregation.StageBsonBuilder().Project(bsonx.M("age", 0)).Build()).
+    Pipeline(aggregation.NewStageBuilder().Project(bsonx.M("age", 0)).Build()).
     Aggregate(context.Background())
 ```
 `Pipeline()` 方法用于设置 **管道**，而 `Aggregate()` 方法则是执行聚合操作。
 
-通过使用 `aggregation` 包中的 `StageBsonBuilder()` 构建器，我们构建了一个 `Project` 阶段，以排除 `age` 字段。
+通过使用 `aggregation` 包中的 `NewStageBuilder()` 构建器，我们构建了一个 `Project` 阶段，以排除 `age` 字段。
 
 ## 字段重命名
 ```go
@@ -29,7 +29,7 @@ type RealUser struct {
 }
 var results []*RealUser
 err := userColl.Aggregator().
-    Pipeline(aggregation.StageBsonBuilder().Project(
+    Pipeline(aggregation.NewStageBuilder().Project(
         bsonx.NewD().Add("real_name", "$name").Add("age", 1).Build(),
     ).Build()).
     AggregateWithParse(context.Background(), &results)

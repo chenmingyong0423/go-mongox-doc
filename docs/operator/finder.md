@@ -18,7 +18,7 @@ users, err := userColl.Finder().Filter(query.In("_id", "60e96214a21b1b0001c3d69e
 ## 统计文档数量
 ```go
 count, err := userColl.Finder().
-		Filter(query.BsonBuilder().Gt("age", 18).Lt("age", 24).Build()).
+		Filter(query.NewBuilder().Gt("age", 18).Lt("age", 24).Build()).
 		Count(context.Background())
 ```
 - `Count` 方法用于统计文档数量。`count` 为 `int64` 类型。

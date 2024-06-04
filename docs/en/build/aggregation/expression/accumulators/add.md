@@ -33,5 +33,5 @@ Build the `$add` expression using the `Builder` builder provided by the `aggrega
      }
    }
 */
-aggregation.BsonBuilder().Add("total", "$price", "$fee").Build()
+aggregation.NewStageBuilder().Add("total", "$price", "$fee").Build()
 ```

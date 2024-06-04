@@ -1,5 +1,5 @@
 # Aggregation Pipeline Stage - $sort
-Build the `$sort` stage through the aggregation pipeline stage builder `aggregation.StageBsonBuilder` using the method `Sort`.
+Build the `$sort` stage through the aggregation pipeline stage builder `aggregation.NewStageBuilder` using the method `Sort`.
 
 ```go
 type User struct {
@@ -17,5 +17,5 @@ type User struct {
 //    }
 //  }
 //]
-aggregation.StageBsonBuilder().Sort(bsonx.NewD().Add("age", 1).Add("name", 1).Build()).Build()
+aggregation.NewStageBuilder().Sort(bsonx.NewD().Add("age", 1).Add("name", 1).Build()).Build()
 ```

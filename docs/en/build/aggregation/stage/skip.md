@@ -1,5 +1,5 @@
 # Aggregation Pipeline Stage - $skip
-Build the `$skip` stage through the aggregation pipeline stage builder `aggregation.StageBsonBuilder` using the method `Skip`.
+Build the `$skip` stage through the aggregation pipeline stage builder `aggregation.NewStageBuilder` using the method `Skip`.
 
 ```go
 type User struct {
@@ -14,5 +14,5 @@ type User struct {
 //    "$skip": 10
 //  }
 //]
-aggregation.StageBsonBuilder().Skip(10).Build()
+aggregation.NewStageBuilder().Skip(10).Build()
 ```

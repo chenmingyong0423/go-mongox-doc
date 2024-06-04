@@ -1,5 +1,5 @@
 # Aggregation Pipeline Stage - $facet
-Build the `$facet` stage through the aggregation pipeline stage builder `aggregation.StageBsonBuilder` using the method `Facet`.
+Build the `$facet` stage through the aggregation pipeline stage builder `aggregation.NewStageBuilder` using the method `Facet`.
 
 Suppose we want to perform the following operations based on the `User` collection:
 
@@ -32,18 +32,18 @@ type User struct {
 //    }
 //  }
 // ]
-aggregation.StageBsonBuilder().Facet(
+aggregation.NewStageBuilder().Facet(
     bsonx.NewD().
-        Add("totalUsers", aggregation.StageBsonBuilder().Count("totalUsers").Build()).
+        Add("totalUsers", aggregation.NewStageBuilder().Count("totalUsers").Build()).
         Add(
             "ageGroups",
-            aggregation.StageBsonBuilder().
+            aggregation.NewStageBuilder().
                 Group("$age", aggregation.Sum("count", 1)...).
                 Sort(bsonx.D("_id", 1)).Build(),
         ).
         Add(
             "over18",
-            aggregation.StageBsonBuilder().
+            aggregation.NewStageBuilder().
                 Match(aggregation.Gt("age", 18)).
                 Project(bsonx.NewD().Add("name", 1).Add("age", 1).Build()).Build()).
         Build(),

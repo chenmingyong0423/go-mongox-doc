@@ -1,5 +1,5 @@
 # 聚合管道阶段 - $sort
-通过聚合管道阶段构建器 `aggregation.StageBsonBuilder` 的方法 `Sort` 构建 `$sort` 阶段。
+通过聚合管道阶段构建器 `aggregation.NewStageBuilder` 的方法 `Sort` 构建 `$sort` 阶段。
 
 ```go
 type User struct {
@@ -17,5 +17,5 @@ type User struct {
 //    }
 //  }
 //]
-aggregation.StageBsonBuilder().Sort(bsonx.NewD().Add("age", 1).Add("name", 1).Build()).Build()
+aggregation.NewStageBuilder().Sort(bsonx.NewD().Add("age", 1).Add("name", 1).Build()).Build()
 ```

@@ -1,5 +1,5 @@
 # 聚合管道阶段 - $limit
-通过聚合管道阶段构建器 `aggregation.StageBsonBuilder` 的方法 `Limit` 构建 `$limit` 阶段。
+通过聚合管道阶段构建器 `aggregation.NewStageBuilder` 的方法 `Limit` 构建 `$limit` 阶段。
 
 ```go
 type User struct {
@@ -14,5 +14,5 @@ type User struct {
 //    "$limit": 5
 //  }
 //]
-aggregation.StageBsonBuilder().Limit(5).Build()
+aggregation.NewStageBuilder().Limit(5).Build()
 ```

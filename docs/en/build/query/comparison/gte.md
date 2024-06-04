@@ -10,9 +10,9 @@ query.Gte("age", 18)
 Build the `gte` query condition using the `Builder` builder provided by the `query` package.
 ```go
 // bson.D{bson.E{Key:"age", Value:bson.D{bson.E{Key:"$gte", Value:18}}}}
- query.BsonBuilder().Gte("age", 18).Build()
+ query.NewBuilder().Gte("age", 18).Build()
 
 // bson.D{bson.E{Key:"age", Value:bson.D{bson.E{Key:"$gte", Value:18}, bson.E{Key:"$lte", Value:30}}}}
-query.BsonBuilder().Gte("age", 18).Lte("age", 30).Build()
+query.NewBuilder().Gte("age", 18).Lte("age", 30).Build()
 ```
 The builder provided by the `query` package is suitable for building composite query conditions.

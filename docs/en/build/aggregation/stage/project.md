@@ -1,5 +1,5 @@
 # Aggregation Pipeline Stage - $project
-Build the `$project` stage through the aggregation pipeline stage builder `aggregation.StageBsonBuilder` using the method `Project`.
+Build the `$project` stage through the aggregation pipeline stage builder `aggregation.NewStageBuilder` using the method `Project`.
 
 ```go
 type User struct {
@@ -20,8 +20,8 @@ type User struct {
 //    }
 //  }
 //]
-aggregation.StageBsonBuilder().Project(
-    aggregation.BsonBuilder().AddKeyValues("_id", 0).
+aggregation.NewStageBuilder().Project(
+    aggregation.NewBuilder().AddKeyValues("_id", 0).
         AddKeyValues("name", 1).
         Gte("isAdult", "$age", 18).Build(),
 ).Build()

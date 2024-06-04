@@ -29,7 +29,7 @@ Build the `$currentDate` update document using the `Builder` builder provided by
       }
     }
 */
-update.BsonBuilder().
+update.NewBuilder().
     CurrentDate("last_modified", true).
     CurrentDate("created_at", bsonx.D("$type", "timestamp")).
     Build()
