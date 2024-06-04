@@ -2,7 +2,7 @@ import { defineConfig, type DefaultTheme } from 'vitepress'
 
 export const zh = defineConfig({
     lang: 'zh-Hans',
-    description: 'go-mongox 指南',
+    description: 'go mongox 指南',
     themeConfig: {
         nav: [
             {text: '指南', link: '/introduction/getting-started'},
@@ -20,7 +20,7 @@ export const zh = defineConfig({
                 text: '简介',
                 collapsed: true,
                 items: [
-                    {text: 'go-mongox 的介绍', link: '/introduction/what-is-go-mongox'},
+                    {text: 'go mongox 的介绍', link: '/introduction/what-is-go-mongox'},
                     {text: '快速开始', link: '/introduction/getting-started'}
                 ]
             },

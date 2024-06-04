@@ -14,7 +14,7 @@ The currently supported hook functions include:
 - Before upsert hook (`BeforeUpsert`)
 - After upsert hook (`AfterUpsert`)
 
-Given MongoDB's document-oriented database characteristics and that some operations do not map directly to structs, `go-mongox` does not provide hook functions for delete and update operations. If you have requirements in this area, you can implement them using the [one-time hook](./one-time-hooks) or [plugin](../plugins/plugins) features provided by `go-mongox`.
+Given MongoDB's document-oriented database characteristics and that some operations do not map directly to structs, `go mongox` does not provide hook functions for delete and update operations. If you have requirements in this area, you can implement them using the [one-time hook](./one-time-hooks) or [plugin](../plugins/plugins) features provided by `go mongox`.
 
 ## Insert Hook
 If you want to process documents before and after inserting them, you can implement the following specific hook methods:

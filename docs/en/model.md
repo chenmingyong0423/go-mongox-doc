@@ -1,5 +1,5 @@
 # Built-in Model
-`go-mongox` incorporates a built-in `Model` struct, which comprises three fields: `ID`, `CreatedAt`, and `UpdatedAt`.
+`go mongox` incorporates a built-in `Model` struct, which comprises three fields: `ID`, `CreatedAt`, and `UpdatedAt`.
 ```go
 type Model struct {
 	ID        primitive.ObjectID `bson:"_id"`

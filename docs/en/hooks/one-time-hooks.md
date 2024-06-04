@@ -1,5 +1,5 @@
 # One Time Hooks
-`go-mongox` supports one-time hooks that allow you to do things before and after querying, inserting, deleting, updating, and saving documents.
+`go mongox` supports one-time hooks that allow you to do things before and after querying, inserting, deleting, updating, and saving documents.
 
 ## Insert Operations
 After you create a creator using the `Creator()` method, you can register hooks to be called before and after inserting documents by calling the `RegisterBeforeHooks` and `RegisterAfterHooks` methods.

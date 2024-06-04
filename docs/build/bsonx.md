@@ -3,7 +3,7 @@
 ## 构建器
 目前 `bsonx` 包只提供了 `bson.D` 数据的构建器 `DBuilder`。
 ```go
-d := bsonx.NewD().Add("name", "Mingyong Chen").Add("name", "Burt")
+d := bsonx.NewD().Add("name", "Mingyong Chen").Add("name", "Burt").Build()
 ```
 ## 函数
 通过函数简化 `BSON` 数据的构建过程。

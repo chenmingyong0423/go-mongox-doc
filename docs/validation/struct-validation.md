@@ -1,5 +1,5 @@
 # 结构体校验
-`go-mongox` 支持利用结构体的标签（`tag`）去对字段值进行校验，这一校验功能基于 [playground/validator](https://github.com/go-playground/validator) 库提供的所有结构体校验规则。
+`go mongox` 支持利用结构体的标签（`tag`）去对字段值进行校验，这一校验功能基于 [playground/validator](https://github.com/go-playground/validator) 库提供的所有结构体校验规则。
 
 ```go
 type User struct {
@@ -16,4 +16,4 @@ type User struct {
 - `InsertMany`：插入多个文档
 - `Upsert`：保存文档
 
-通过整合 `playground/validator` 库，`go-mongox` 能够提供强大且灵活的数据校验功能，确保数据的准确性和一致性。
+通过整合 `playground/validator` 库，`go mongox` 能够提供强大且灵活的数据校验功能，确保数据的准确性和一致性。

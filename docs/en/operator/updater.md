@@ -8,9 +8,9 @@ updateResult, err := userColl.Updater().
 		Updates(update.Set("name", "Mingyong Chen")).
 		UpdateOne(context.Background())
 ```
-The `UpdateOne` method is used to update a single document. The `updateResult` is of type `*mongo.UpdateResult`.
+- The `UpdateOne` method is used to update a single document. The `updateResult` is of type `*mongo.UpdateResult`.
 
-Through the `Updates` method, we can specify the operations for the update. This method accepts parameters of type `any`, allowing for any type of argument to be passed in, provided they conform to a valid update statement structure. In the example provided, `update.Set("name", "Mingyong Chen")` is used to specify that the `name` field should be updated to "Mingyong Chen". For more buildss of update statements, refer to the `update` package.
+- Through the `Updates` method, we can specify the operations for the update. This method accepts parameters of type `any`, allowing for any type of argument to be passed in, provided they conform to a valid update statement structure. In the example provided, `update.Set("name", "Mingyong Chen")` is used to specify that the `name` field should be updated to "Mingyong Chen". For more buildss of update statements, refer to the `update` package.
 
 ## Update multiple documents
 ```go
@@ -18,7 +18,7 @@ updateResult, err := userColl.Updater().
 		Updates(update.Set("name", "Mingyong Chen")).
 		UpdateMany(context.Background())
 ```
-The `UpdateMany` method is used for updating multiple documents. The `updateResult` is of type `*mongo.UpdateResult`.
+- The `UpdateMany` method is used for updating multiple documents. The `updateResult` is of type `*mongo.UpdateResult`.
 
 ## Upsert operation
 ```go
@@ -27,4 +27,4 @@ updateResult, err := userColl.Updater().
 		Replacement(&User{Name: "Mingyong Chen", Age: 18}).
 		Upsert(context.Background())
 ```
-The `Upsert` method is used to update or insert a single document. The `updateResult` is of type `*mongo.UpdateResult`. This method should be used in conjunction with the `Replacement` method, which specifies the document for replacement.
+- The `Upsert` method is used to update or insert a single document. The `updateResult` is of type `*mongo.UpdateResult`. This method should be used in conjunction with the `Replacement` method, which specifies the document for replacement.

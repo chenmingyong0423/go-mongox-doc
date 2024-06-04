@@ -14,7 +14,7 @@
 - 保存前的钩子（`BeforeUpsert`）
 - 保存后的钩子（`AfterUpsert`）
 
-鉴于 `MongoDB` 的文档型数据库特性，以及某些操作不直接映射到结构体上，`go-mongox` 不为删除和更新操作提供钩子函数。如果你有这方面的需求，你可以使用 `go-mongox` 提供的 [一次性钩子](./one-time-hooks) 或 [插件](../plugins/plugins) 功能来实现它们。
+鉴于 `MongoDB` 的文档型数据库特性，以及某些操作不直接映射到结构体上，`go mongox` 不为删除和更新操作提供钩子函数。如果你有这方面的需求，你可以使用 `go mongox` 提供的 [一次性钩子](./one-time-hooks) 或 [插件](../plugins/plugins) 功能来实现它们。
 ## 插入钩子（`Insert Hook`）
 如果你想在插入文档的前后对文档进行处理，你可以实现以下特定的钩子方法：
 ```go

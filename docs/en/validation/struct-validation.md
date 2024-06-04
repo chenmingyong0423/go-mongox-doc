@@ -1,5 +1,5 @@
 # Struct Validation
-`go-mongox` supports field value validation using struct tags (`tag`), leveraging the comprehensive struct validation rules provided by the [playground/validator](https://github.com/go-playground/validator) library.
+`go mongox` supports field value validation using struct tags (`tag`), leveraging the comprehensive struct validation rules provided by the [playground/validator](https://github.com/go-playground/validator) library.
 
 ```go
 type User struct {
@@ -16,4 +16,4 @@ This validation feature is currently applicable to the following API operations:
 - `InsertMany`: Insert multiple documents
 - `Upsert`: Save a document
 
-By integrating the `playground/validator` library, `go-mongox` provides powerful and flexible data validation to ensure accuracy and consistency of data.
+By integrating the `playground/validator` library, `go mongox` provides powerful and flexible data validation to ensure accuracy and consistency of data.

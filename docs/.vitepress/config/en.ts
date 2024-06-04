@@ -2,7 +2,7 @@ import {defineConfig} from 'vitepress'
 
 export const en = defineConfig({
     lang: 'en-US',
-    description: 'go-mongox Guide',
+    description: 'go mongox Guide',
     themeConfig: {
         nav: [
             {text: 'Guide', link: '/en/introduction/getting-started'},
@@ -18,7 +18,7 @@ export const en = defineConfig({
                 text: 'Introduction',
                 collapsed: true,
                 items: [
-                    {text: 'What is go-mongox?', link: '/en/introduction/what-is-go-mongox'},
+                    {text: 'What is go mongox?', link: '/en/introduction/what-is-go-mongox'},
                     {text: 'Getting Started', link: '/en/introduction/getting-started'},
                 ]
             },

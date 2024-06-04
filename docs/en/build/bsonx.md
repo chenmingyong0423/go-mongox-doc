@@ -4,7 +4,7 @@ The `bsonx` package provides a range of convenient functions and builders for bu
 ## Builder
 Currently, the `bsonx` package only provides a builder for `bson.D` data called `DBuilder`.
 ```go
-d := bsonx.NewD().Add("name", "Mingyong Chen").Add("name", "Burt")
+d := bsonx.NewD().Add("name", "Mingyong Chen").Add("name", "Burt").Build()
 ```
 
 ## Functions

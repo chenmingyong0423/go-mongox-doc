@@ -1,8 +1,8 @@
 # Plugin
-`go-mongox` supports plugin programming, providing a flexible way to insert custom logic before and after database operations, thereby enhancing the scalability and maintainability of applications.
+`go mongox` supports plugin programming, providing a flexible way to insert custom logic before and after database operations, thereby enhancing the scalability and maintainability of applications.
 
 ## Plugin Registration and Removal
-`go-mongox` provides the `RegisterPlugin` and `UnregisterPlugin` methods to register and remove plugins.
+`go mongox` provides the `RegisterPlugin` and `UnregisterPlugin` methods to register and remove plugins.
 
 ```go
 // Register Plugin

@@ -1,8 +1,8 @@
 # 插件化编程
-`go-mongox` 支持插件化编程，它提供了一种灵活的方式在数据库操作的前后插入自定义的逻辑，从而增强应用的可扩展性和可维护性。
+`go mongox` 支持插件化编程，它提供了一种灵活的方式在数据库操作的前后插入自定义的逻辑，从而增强应用的可扩展性和可维护性。
 
 ## 插件的注册与删除
-`go-mongox` 提供了 `RegisterPlugin` 和 `UnregisterPlugin` 方法来注册和删除插件。
+`go mongox` 提供了 `RegisterPlugin` 和 `UnregisterPlugin` 方法来注册和删除插件。
 
 ```go
 // Register Plugin

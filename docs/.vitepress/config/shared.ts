@@ -1,7 +1,7 @@
 import { defineConfig } from 'vitepress'
 
 export const shared = defineConfig({
-    title: 'go-mongox',
+    title: 'go mongox',
     sitemap: {
         hostname: 'https://go-mongox.dev'
     },
@@ -12,8 +12,8 @@ export const shared = defineConfig({
         [ 'meta', { name: 'baidu-site-verification', content: 'codeva-sIm3HwlyYX' } ],
         ['meta', { property: 'og:type', content: 'website' }],
         ['meta', { property: 'og:locale', content: 'zh' }],
-        ['meta', { property: 'og:title', content: 'go-mongox 指南' }],
-        ['meta', { property: 'og:site_name', content: 'go-mongox' }],
+        ['meta', { property: 'og:title', content: 'go mongox 指南' }],
+        ['meta', { property: 'og:site_name', content: 'go mongox' }],
         ['meta', { property: 'og:image', content: 'https://go-mongox.dev/go-mongox-logo.png' }],
         ['meta', { property: 'og:url', content: 'https://go-mongox.dev/' }],
     ],
