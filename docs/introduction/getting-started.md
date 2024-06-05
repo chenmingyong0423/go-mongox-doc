@@ -232,3 +232,5 @@ mongox.Register("myBeforeInsertHook", func(ctx context.Context, opCtx *operation
 mongox.Remove("myBeforeInsertHook", operation.OpTypeBeforeInsert)
 ```
 更多关于 `插件化编程` 的操作请参考 [插件化编程](../plugins/plugins)。
+
+<div id="gitalk-container"></div>
