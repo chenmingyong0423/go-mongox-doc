@@ -22,7 +22,7 @@ next: false
 ### Preparation
 - **Fork the Project:** Before you begin, please [Fork go mongox](https://github.com/chenmingyong0423/go-mongox/fork) into your own `GitHub` repository so that you can make modifications and submit them from your own repository.
 - **Set Up Development Environment:**
-    - **Install Go:** Ensure that you have installed Go, with a version higher than `1.20`.
+    - **Install Go:** Ensure that you have installed Go, with a version higher than `1.18`.
     - **Install make Tool:** `go mongox` utilizes `make` to manage the project. Make sure you have installed the `make` tool.
     - **Install Dependencies:** Execute the `make setup` command in the project's root directory. This command will install the necessary dependencies and configure `git` hooks, code formatting, and code checking tools.
 
