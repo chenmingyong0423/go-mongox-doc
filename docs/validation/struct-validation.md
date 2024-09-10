@@ -14,7 +14,6 @@ type User struct {
 此校验功能目前适用于以下 `API` 操作：：
 - `InsertOne`：插入一个文档
 - `InsertMany`：插入多个文档
-- `Upsert`：保存文档
 
 通过整合 `playground/validator` 库，`go mongox` 能够提供强大且灵活的数据校验功能，确保数据的准确性和一致性。
 

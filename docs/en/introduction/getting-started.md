@@ -1,4 +1,9 @@
 # Getting Started
+## Install
+```bash
+go get github.com/chenmingyong0423/go-mongox
+```
+
 ## Usage
 - Create a generic `Collection`
   ```go
@@ -28,13 +33,13 @@
   }
   
   type User struct {
-      mongox.Model `bson:"inline"`
+      mongox.Model `bson:",inline"`
       Name         string `bson:"name"`
       Age          int    `bson:"age"`
   }
   ```
   With the `mongox.NewCollection` function, we can specify generic parameters and create a generic `Collection` object. This way we can use the `userColl` object to manipulate the document of type `User`.
-  
+
   The following operations will be based on the 'userColl' object for example.
 
   [More about generic Collection](../collection/generic-collection)
@@ -66,7 +71,10 @@
       Filter(query.NewBuilder().Gt("age", 18).Lt("age", 25).Build()).Updates(update.Set("name", "burt")).
       UpdateOne(context.Background())
   // Upsert
-  updateResult, err := userColl.Updater().Filter(query.Id("60e96214a21b1b0001c3d69e")).Replacement(&User{Name: "chenmingyong", "age": 24}).Upsert(context.Background())
+  updateResult, err := userColl.Updater().
+      Filter(query.Eq("name", "Mingyong Chen")).
+      Updates(update.NewBuilder().Set("name", "Mingyong Chen").Set("age", 18).Build()).
+      Upsert(context.Background())
   ```
   [More about Updater](../operator/updater)
 - Query operation
@@ -200,7 +208,7 @@
 ## Hooks
 ```go
 type User struct {
-	mongox.Model `bson:"inline"`
+	mongox.Model `bson:",inline"`
 	Name         string `bson:"name"`
 	Age          int    `bson:"age"`
 }

@@ -1,4 +1,9 @@
 # 快速开始
+## 安装
+```bash
+go get github.com/chenmingyong0423/go-mongox
+```
+
 ## 基本使用
 - 创建泛型的 `Collection`
   ```go
@@ -28,16 +33,16 @@
   }
   
   type User struct {
-      mongox.Model `bson:"inline"`
+      mongox.Model `bson:",inline"`
       Name         string `bson:"name"`
       Age          int    `bson:"age"`
   }
   ```
-    通过 `mongox.NewCollection` 函数，我们可以指定泛型参数并创建一个泛型的 `Collection` 对象。这样我们就可以使用 `userColl` 对象来操作 `User` 类型的文档了。
+  通过 `mongox.NewCollection` 函数，我们可以指定泛型参数并创建一个泛型的 `Collection` 对象。这样我们就可以使用 `userColl` 对象来操作 `User` 类型的文档了。
 
-    后面的操作将基于 `userColl` 对象进行举例。
+  后面的操作将基于 `userColl` 对象进行举例。
     
-    更多关于 `Collection` 的操作请参考 [泛型的 Collection](../collection/generic-collection)。
+  更多关于 `Collection` 的操作请参考 [泛型的 Collection](../collection/generic-collection)。
 - 插入操作
   ```go
   // 插入一个文档
@@ -56,7 +61,7 @@
   // 根据 name 删除多个文档
   deleteMany, err := userColl.Deleter().Filter(query.In("name", "chenmingyong", "burt")).DeleteMany(context.Background())
   ```
-    更多关于 `Deleter` 的操作请参考 [Deleter 删除器](../operator/deleter)。
+  更多关于 `Deleter` 的操作请参考 [Deleter 删除器](../operator/deleter)。
 - 更新操作
   ```go
   // 更新单个文档
@@ -66,7 +71,10 @@
       Filter(query.NewBuilder().Gt("age", 18).Lt("age", 25).Build()).Updates(update.Set("name", "burt")).
       UpdateOne(context.Background())
   // Upsert
-  updateResult, err := userColl.Updater().Filter(query.Id("60e96214a21b1b0001c3d69e")).Replacement(&User{Name: "chenmingyong", "age": 24}).Upsert(context.Background())
+  updateResult, err := userColl.Updater().
+      Filter(query.Eq("name", "Mingyong Chen")).
+      Updates(update.NewBuilder().Set("name", "Mingyong Chen").Set("age", 18).Build()).
+      Upsert(context.Background())
   ```
   更多关于 `Updater` 的操作请参考 [Updater 更新器](../operator/updater)。
 - 查询操作
@@ -202,7 +210,7 @@
 ## Hooks
 ```go
 type User struct {
-	mongox.Model `bson:"inline"`
+	mongox.Model `bson:",inline"`
 	Name         string `bson:"name"`
 	Age          int    `bson:"age"`
 }

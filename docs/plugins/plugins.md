@@ -57,9 +57,11 @@ func RegisterPlugin(name string, cb callback.CbFn, opType operation.OpType)
             Col *mongo.Collection `opt:"-"`
             Doc any
             // filter also can be used as query
-            Filter      any
-            Updates     any
-            Replacement any
+            Filter       any
+            Updates      any
+            Replacement  any
+            MongoOptions any
+            ModelHook    any
         }
         ```
         当 `opType` 为 `operation.OpTypeBeforeInsert` 或 `operation.OpTypeAfterInsert` 时，`opCtx.Doc` 的值可能不为 `nil`，其类型可能是 `*struct` 或 `[]*struct`。
@@ -68,11 +70,13 @@ func RegisterPlugin(name string, cb callback.CbFn, opType operation.OpType)
   
         当 `opType` 为 `operation.OpTypeBeforeDelete` 或 `operation.OpTypeAfterDelete` 时，`opCtx.Filter` 的值可能不为 `nil`。
   
-        当 `opType` 为 `operation.OpTypeBeforeUpsert` 或 `operation.OpTypeAfterUpsert` 时，`opCtx.Filter` 和 `opCtx.Replacement` 的值可能不为 `nil`。
+        当 `opType` 为 `operation.OpTypeBeforeUpsert` 或 `operation.OpTypeAfterUpsert` 时，`opCtx.Filter` 和 `opCtx.Updates` 的值可能不为 `nil`。
   
         当 `opType` 为 `operation.OpTypeBeforeFind` 或 `operation.OpTypeAfterFind` 时，`opCtx.Filter` 的值可能不为 `nil`，如果是后者，`opCtx.Doc` 的值可能不为 `nil`。
-  
-    - `opts`：可选参数
+
+        `MongoOptions` 和 `ModelHook` 是否为 `nil`，取决于在执行 `MongoDB` 操作时，使用者是否设置它们。
+
+  - `opts`：可选参数
 - `opType`：插件的类型，支持的类型如下表格：
 
     | 类型                             | 描述        | 

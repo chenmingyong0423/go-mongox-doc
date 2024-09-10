@@ -1,21 +1,21 @@
 # Struct Validation
-`go mongox` supports field value validation using struct tags (`tag`), leveraging the comprehensive struct validation rules provided by the [playground/validator](https://github.com/go-playground/validator) library.
+
+`go mongox` supports validating field values using struct tags (`tag`). This validation feature is based on the validation rules provided by the [playground/validator](https://github.com/go-playground/validator) library.
 
 ```go
 type User struct {
 	mongox.Model   `bson:"inline"`
 	Name           string `bson:"name"`
-	Age            uint8  `validate:"gte=0,lte=130"`                // Ensures age is between 0 and 130 years
-	Email          string `json:"e-mail" validate:"required,email"` // Field must be present and follow email format
-	FavouriteColor string `validate:"hexcolor|rgb|rgba"`            // Ensures the color value is either in hex, RGB, or RGBA format
+	Age            uint8  `validate:"gte=0,lte=130"`                // Ensures age is between 0 and 130
+	Email          string `json:"e-mail" validate:"required,email"` // Indicates this field is required and must be in a valid email format during validation.
+	FavouriteColor string `validate:"hexcolor|rgb|rgba"`            // Ensures the provided color value is either a hex color code or in RGB/RGBA format.
 }
 ```
 
-This validation feature is currently applicable to the following API operations:
-- `InsertOne`: Insert a single document
-- `InsertMany`: Insert multiple documents
-- `Upsert`: Save a document
+This validation feature is currently available for the following API operations:
+- `InsertOne`: Inserts a single document
+- `InsertMany`: Inserts multiple documents
 
-By integrating the `playground/validator` library, `go mongox` provides powerful and flexible data validation to ensure accuracy and consistency of data.
+By integrating the `playground/validator` library, `go mongox` offers a robust and flexible validation mechanism to ensure data accuracy and consistency.
 
-**Note**: The validation feature will only take effect if `EnableValidationHook` is set to `true` when initializing the plugin (for details, please refer to [Enabling Built-in Plugins - Hooks](../plugins/plugins#enabling-built-in-plugins-hooks)).
+**Note**: Validation will only be enabled when the `EnableValidationHook` option is set to `true` during plugin initialization (for details, refer to [Enabling Built-in Plugins - Hooks](../plugins/plugins#enabling-built-in-plugins-hooks)).

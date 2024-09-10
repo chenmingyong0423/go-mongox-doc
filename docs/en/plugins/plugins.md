@@ -57,9 +57,11 @@ This function takes three parameters:
                Col *mongo.Collection `opt:"-"`
                Doc any
                // filter also can be used as query
-               Filter      any
-               Updates     any
-               Replacement any
+               Filter       any
+               Updates      any
+               Replacement  any
+               MongoOptions any
+               ModelHook    any
             }
         ``` 
       
@@ -69,10 +71,11 @@ This function takes three parameters:
  
         When `opType` is `operation.OpTypeBeforeDelete` or `operation.OpTypeAfterDelete`, the value of `opCtx.Filter` may not be `nil`.
  
-        When `opType` is `operation.OpTypeBeforeUpsert` or `operation.OpTypeAfterUpsert`, the values of `opCtx.Filter` and `opCtx.Replacement` may not be `nil`.
+        When `opType` is `operation.OpTypeBeforeUpsert` or `operation.OpTypeAfterUpsert`, the values of `opCtx.Filter` and `opCtx.Updates` may not be `nil`.
  
         When `opType` is `operation.OpTypeBeforeFind` or `operation.OpTypeAfterFind`, the value of `opCtx.Filter` may not be `nil`, and if it is the latter, the value of `opCtx.Doc` may not be `nil`.
 
+        The `MongoOptions` and `ModelHook` being `nil` depends on whether the user sets them during the execution of the `MongoDB` operations.
     - `opts`: Optional parameters
 - `opType`: The type of the plugin, the supported types are as follows:
 

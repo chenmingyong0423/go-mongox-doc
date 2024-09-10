@@ -23,8 +23,8 @@ updateResult, err := userColl.Updater().
 ## Upsert operation
 ```go
 updateResult, err := userColl.Updater().
-		Filter(query.Id("60e96214a21b1b0001c3d69e")).
-		Replacement(&User{Name: "Mingyong Chen", Age: 18}).
+		Filter(query.Eq("name", "Mingyong Chen")).
+		Updates(update.NewBuilder().Set("name", "Mingyong Chen").Set("age", 18).Build()).
 		Upsert(context.Background())
 ```
-- The `Upsert` method is used to update or insert a single document. The `updateResult` is of type `*mongo.UpdateResult`. This method should be used in conjunction with the `Replacement` method, which specifies the document for replacement.
+- The `Upsert` method is used to update or insert a single document. The `updateResult` is of type `*mongo.UpdateResult`.

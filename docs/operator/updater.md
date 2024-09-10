@@ -23,8 +23,8 @@ updateResult, err := userColl.Updater().
 ## Upsert 操作
 ```go
 updateResult, err := userColl.Updater().
-		Filter(query.Id("60e96214a21b1b0001c3d69e")).
-		Replacement(&User{Name: "Mingyong Chen", Age: 18}).
+		Filter(query.Eq("name", "Mingyong Chen")).
+		Updates(update.NewBuilder().Set("name", "Mingyong Chen").Set("age", 18).Build()).
 		Upsert(context.Background())
 ```
-- `Upsert` 方法用于更新或插入一个文档。`updateResult` 为 `*mongo.UpdateResult` 类型。该方法需要结合 `Replacement` 方法使用，用于指定替换的文档。
+- `Upsert` 方法用于更新或插入一个文档。`updateResult` 为 `*mongo.UpdateResult` 类型。
