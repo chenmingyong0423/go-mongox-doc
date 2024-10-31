@@ -1,8 +1,20 @@
 # 快速开始
 ## 安装
-```bash
-go get github.com/chenmingyong0423/go-mongox
-```
+`mongox` 库已发布 `v2` 版本以兼容 `mongo-driver` 官方驱动的 `v2` 版本。当前 `mongo-driver v2` 版本仍处于 `beta` 阶段，待其正式发布后，`mongox` 将停止在 `v1` 版本上增加新功能，转而集中在 `v2` 版本。与此同时，`v1` 和 `v2` 版本目前均会同步更新新功能。
+
+根据使用的 `mongo-driver` 版本选择适合的 `mongox` 版本：
+
+- 如果使用 `mongo-driver 1.x` 版本：
+
+  ```bash
+  go get github.com/chenmingyong0423/go-mongox
+  ```
+
+- 如果使用 `mongo-driver 2.x` 版本：
+
+  ```bash
+  go get github.com/chenmingyong0423/go-mongox/v2
+  ```
 
 ## 基本使用
 - 创建泛型的 `Collection`
@@ -16,7 +28,15 @@ go get github.com/chenmingyong0423/go-mongox
   
   // 示例代码，不是最佳的创建方式
   func newCollection() *mongo.Collection {
-      client, err := mongo.Connect(context.Background(), options.Client().ApplyURI("mongodb://localhost:27017").SetAuth(options.Credential{
+      // v1
+      //client, err := mongo.Connect(context.Background(), options.Client().ApplyURI("mongodb://localhost:27017").SetAuth(options.Credential{
+      //	Username:   "test",
+      //	Password:   "test",
+      //	AuthSource: "db-test",
+      //}))
+  
+      // v2
+      client, err := mongo.Connect(options.Client().ApplyURI("mongodb://localhost:27017").SetAuth(options.Credential{
           Username:   "test",
           Password:   "test",
           AuthSource: "db-test",
@@ -28,7 +48,7 @@ go get github.com/chenmingyong0423/go-mongox
       if err != nil {
           panic(err)
       }
-      collection := client.Database("db-test").Collection("test_post")
+      collection := client.Database("db-test").Collection("test_user")
       return collection
   }
   
@@ -46,10 +66,10 @@ go get github.com/chenmingyong0423/go-mongox
 - 插入操作
   ```go
   // 插入一个文档
-  insertOneResult, err := userColl.Creator().InsertOne(context.Background(), &User{Name: "chenmingyong"})
+  insertOneResult, err := userColl.Creator().InsertOne(context.Background(), &User{Name: "Mingyong Chen"})
   // 插入多个文档
   insertMany, err := userColl.Creator().InsertMany(context.Background(), []*User{
-      {Name: "chenmingyong", Age: 24},
+      {Name: "Mingyong Chen", Age: 24},
       {Name: "burt", Age: 25},
   })
   ```
@@ -57,32 +77,32 @@ go get github.com/chenmingyong0423/go-mongox
 - 删除操作
   ```go
   // 根据 name 删除一个文档
-  deleteResult, err := userColl.Deleter().Filter(query.Eq("name", "chenmingyong")).DeleteOne(context.Background())
+  deleteResult, err := userColl.Deleter().Filter(query.Eq("name", "Mingyong Chen")).DeleteOne(context.Background())
   // 根据 name 删除多个文档
-  deleteMany, err := userColl.Deleter().Filter(query.In("name", "chenmingyong", "burt")).DeleteMany(context.Background())
+  deleteResult, err = userColl.Deleter().Filter(query.In("name", "Mingyong Chen", "burt")).DeleteMany(context.Background())
   ```
   更多关于 `Deleter` 的操作请参考 [Deleter 删除器](../operator/deleter)。
 - 更新操作
   ```go
   // 更新单个文档
-  updateResult, err := userColl.Updater().Filter(query.Eq("name", "chenmingyong")).Updates(update.Set("name", "burt")).UpdateOne(context.Background())
+  updateResult, err := userColl.Updater().Filter(query.Eq("name", "Mingyong Chen")).Updates(update.Set("name", "burt")).UpdateOne(context.Background())
   // 更新多个文档
-  updateResult, err := userColl.Updater().
+  updateResult, err = userColl.Updater().
       Filter(query.NewBuilder().Gt("age", 18).Lt("age", 25).Build()).Updates(update.Set("name", "burt")).
       UpdateOne(context.Background())
   // Upsert
-  updateResult, err := userColl.Updater().
-      Filter(query.Eq("name", "Mingyong Chen")).
-      Updates(update.NewBuilder().Set("name", "Mingyong Chen").Set("age", 18).Build()).
+  updateResult, err = userColl.Updater().
+      Filter(query.Eq("name", "chenmingyong")).
+      Updates(update.NewBuilder().Set("name", "chenmingyong").Set("age", 18).Build()).
       Upsert(context.Background())
   ```
   更多关于 `Updater` 的操作请参考 [Updater 更新器](../operator/updater)。
 - 查询操作
   ```go
   // 查询一个文档
-  findResult, err := userColl.Finder().Filter(query.Eq("name", "chenmingyong")).FindOne(context.Background())
+  user, err := userColl.Finder().Filter(query.Eq("name", "Mingyong Chen")).FindOne(context.Background())
   // 查询多个文档
-  findResults, err := userColl.Finder().Filter(query.In("name", "chenmingyong", "burt")).Find(context.Background())
+  users, err := userColl.Finder().Filter(query.In("name", "Mingyong Chen", "burt")).Find(context.Background())
   // Count 查询文档数量
   count, err := userColl.Finder().Filter(query.Gt("age", 18)).Count(context.Background())
   ```
@@ -102,7 +122,7 @@ go get github.com/chenmingyong0423/go-mongox
       Age          int    `bson:"age"`
   }
   var results []*RealUser
-  err := userColl.Aggregator().
+  err = userColl.Aggregator().
       Pipeline(aggregation.NewStageBuilder().Project(
           bsonx.NewD().Add("real_name", "$name").Add("age", 1).Build(),
       ).Build()).
@@ -122,8 +142,8 @@ go get github.com/chenmingyong0423/go-mongox
   // bson.E{Key:"姓名", Value:"陈明勇"}
   e := bsonx.E("姓名", "陈明勇")
   
-  // bson.D{bson.E{Key:"姓名", Value:"陈明勇"}, bson.E{Key:"手机号", Value:"1888***1234"}}
-  d := bsonx.D(bsonx.E("姓名", "陈明勇"), bsonx.E("手机号", "1888***1234"))
+  // bson.D{bson.E{Key:"姓名", Value:"陈明勇"}}
+  d := bsonx.D("姓名", "陈明勇")
   // 我们还可以使用 bsonx.DBuilder 来构建 bson.D
   d2 := bsonx.NewD().Add("姓名", "陈明勇").Add("手机号", "1888***1234").Build()
   
@@ -142,7 +162,7 @@ go get github.com/chenmingyong0423/go-mongox
   
   // elemMatch
   // bson.D{bson.E{Key: "result", Value: bson.D{bson.E{Key: "$elemMatch", Value: bson.D{bson.E{Key: "$gte", Value: 80}, bson.E{Key: "$lt", Value: 85}}}}}}
-  d = query.ElemMatch("result", bsonx.D(bsonx.E("$gte", 80), bsonx.E("$lt", 85)))
+  d = query.ElemMatch("result", bsonx.NewD().Add("$gte", 80).Add("$lt", 85).Build())
   
   // 通过构建器构建
   // bson.D{bson.E{Key:"age", Value:bson.D{{Key:"$gt", Value:18}, bson.E{Key:"$lt", Value:25}}}}
@@ -200,7 +220,7 @@ go get github.com/chenmingyong0423/go-mongox
   pipeline = aggregation.NewStageBuilder().Unwind("$size", nil).Build()
   
   // mongo.Pipeline{bson.D{bson.E{Key:"$unwind", Value:bson.D{bson.E{Key:"path", Value:"$size"}, bson.E{Key:"includeArrayIndex", Value:"arrayIndex"}, bson.E{Key:"preserveNullAndEmptyArrays", Value:true}}}}}
-  pipeline = aggregation.NewStageBuilder().Unwind("$size", &types.UnWindOptions{
+  pipeline = aggregation.NewStageBuilder().Unwind("$size", &aggregation.UnWindOptions{
       IncludeArrayIndex:          "arrayIndex",
       PreserveNullAndEmptyArrays: true,
   }).Build()
@@ -225,19 +245,27 @@ func (u *User) AfterInsert(ctx context.Context) error {
 	return nil
 }
 
+// 开启 Model Hook
+mongox.InitPlugin(&mongox.PluginConfig{
+    EnableDefaultFieldHook: false,
+    EnableModelHook:        true,
+    EnableValidationHook:   false,
+    Validate:               nil,
+})
+
 insertOneResult, err := userColl.Creator().InsertOne(context.Background(), &User{Name: "chenmingyong"})
 ```
 更多关于 `Hooks` 的操作请参考 [Hooks 钩子](../hooks/model-hooks)。
 ## 插件化编程
 ```go
 // 你可以在任何时候注册一个回调
-mongox.Register("myBeforeInsertHook", func(ctx context.Context, opCtx *operation.OpContext, opts ...any) error {
+mongox.RegisterPlugin("myBeforeInsertHook", func(ctx context.Context, opCtx *operation.OpContext, opts ...any) error {
     // 在这里你可以做一些操作
     return nil
 }, operation.OpTypeBeforeInsert)
 
 // 你可以在任何时候移除一个回调
-mongox.Remove("myBeforeInsertHook", operation.OpTypeBeforeInsert)
+mongox.RemovePlugin("myBeforeInsertHook", operation.OpTypeBeforeInsert)
 ```
 更多关于 `插件化编程` 的操作请参考 [插件化编程](../plugins/plugins)。
 

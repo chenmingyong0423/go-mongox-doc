@@ -11,7 +11,15 @@ type User struct {
   
 // Sample code, not the best way to create it
 func newCollection() *mongo.Collection {
-  client, err := mongo.Connect(context.Background(), options.Client().ApplyURI("mongodb://localhost:27017").SetAuth(options.Credential{
+  // v1
+  //client, err := mongo.Connect(context.Background(), options.Client().ApplyURI("mongodb://localhost:27017").SetAuth(options.Credential{
+  //	Username:   "test",
+  //	Password:   "test",
+  //	AuthSource: "db-test",
+  //}))
+
+  // v2
+  client, err := mongo.Connect(options.Client().ApplyURI("mongodb://localhost:27017").SetAuth(options.Credential{
       Username:   "test",
       Password:   "test",
       AuthSource: "db-test",

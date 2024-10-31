@@ -25,11 +25,23 @@ count, err := userColl.Finder().
 
 ## Distinct query
 ```go
-result, err := userColl.Finder().Distinct(context.Background(), "age")
+// v1
+//result, err := userColl.Finder().Distinct(context.Background(), "age")
+//
+//// you can parse the result to slices using the DistinctWithParse method
+//ageSlice := make([]int, 0)
+//err := userColl.Finder().DistinctWithParse(context.Background(), "age", &ageSlice)
 
+// v2
+distinctResult := userColl.Finder().Distinct(context.Background(), "age")
+if distinctResult.Err() != nil {
+    panic(distinctResult.Err())
+}
+
+// you can parse the result to slices using the DistinctWithParse method
 ageSlice := make([]int, 0)
 err := userColl.Finder().DistinctWithParse(context.Background(), "age", &ageSlice)
 ```
-- The `Distinct` method is used to query unique values of a specified field. `result` is of type `[]any`.
+- The `Distinct` method is used to query the unique value of a specified field. `mongo-driver v1` returns a result of type `[]any`, whereas `mongo-driver v2` returns a `*mongo.DistinctResult`.
 
 - If you wish to parse the result into a slice, you can use the `DistinctWithParse` method. This method takes a pointer to a slice as a parameter for parsing the results.
