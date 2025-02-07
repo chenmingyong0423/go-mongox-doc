@@ -1,8 +1,20 @@
 # Getting Started
 ## Install
-```bash
-go get github.com/chenmingyong0423/go-mongox
-```
+The `mongox` library has released a `v2` version to be compatible with the official `mongo-driver` `v2`. Currently, the `mongo-driver v2` is in its `beta` phase, and once it is officially released, `mongox` will stop adding new features to `v1` and will focus solely on `v2`. However, for now, both `v1` and `v2` versions will receive new feature updates.
+
+Select the appropriate `mongox` version based on the `mongo-driver` version in use:
+
+- If you are using `mongo-driver 1.x`:
+
+  ```bash
+  go get github.com/chenmingyong0423/go-mongox
+  ```
+
+- If you are using `mongo-driver 2.x`:
+
+  ```bash
+  go get github.com/chenmingyong0423/go-mongox/v2
+  ```
 
 ## Usage
 - Create a generic `Collection`
@@ -16,7 +28,15 @@ go get github.com/chenmingyong0423/go-mongox
 
   // Sample code, not the best way to create it
   func newCollection() *mongo.Collection {
-      client, err := mongo.Connect(context.Background(), options.Client().ApplyURI("mongodb://localhost:27017").SetAuth(options.Credential{
+      // v1
+      //client, err := mongo.Connect(context.Background(), options.Client().ApplyURI("mongodb://localhost:27017").SetAuth(options.Credential{
+      //	Username:   "test",
+      //	Password:   "test",
+      //	AuthSource: "db-test",
+      //}))
+  
+      // v2
+      client, err := mongo.Connect(options.Client().ApplyURI("mongodb://localhost:27017").SetAuth(options.Credential{
           Username:   "test",
           Password:   "test",
           AuthSource: "db-test",
@@ -28,7 +48,7 @@ go get github.com/chenmingyong0423/go-mongox
       if err != nil {
           panic(err)
       }
-      collection := client.Database("db-test").Collection("test_post")
+      collection := client.Database("db-test").Collection("test_user")
       return collection
   }
   
@@ -46,10 +66,10 @@ go get github.com/chenmingyong0423/go-mongox
 - Insert operation
   ```go
   // Insert a document
-  insertOneResult, err := userColl.Creator().InsertOne(context.Background(), &User{Name: "chenmingyong"})
+  insertOneResult, err := userColl.Creator().InsertOne(context.Background(), &User{Name: "Mingyong Chen"})
   // Insert multiple documents
   insertMany, err := userColl.Creator().InsertMany(context.Background(), []*User{
-      {Name: "chenmingyong", Age: 24},
+      {Name: "Mingyong Chen", Age: 24},
       {Name: "burt", Age: 25},
   })
   ```
@@ -57,32 +77,32 @@ go get github.com/chenmingyong0423/go-mongox
 - Delete operation
   ```go
   // Delete a document based on name
-  deleteResult, err := userColl.Deleter().Filter(query.Eq("name", "chenmingyong")).DeleteOne(context.Background())
+  deleteResult, err := userColl.Deleter().Filter(query.Eq("name", "Mingyong Chen")).DeleteOne(context.Background())
   // Delete multiple documents based on name
-  deleteMany, err := userColl.Deleter().Filter(query.In("name", "chenmingyong", "burt")).DeleteMany(context.Background())
+  deleteResult, err = userColl.Deleter().Filter(query.In("name", "Mingyong Chen", "burt")).DeleteMany(context.Background())
   ```
   [More about Deleter](../operator/deleter)
 - Update operation
   ```go
   // Update a single document
-  updateResult, err := userColl.Updater().Filter(query.Eq("name", "chenmingyong")).Updates(update.Set("name", "burt")).UpdateOne(context.Background())
+  updateResult, err := userColl.Updater().Filter(query.Eq("name", "Mingyong Chen")).Updates(update.Set("name", "burt")).UpdateOne(context.Background())
   // Update multiple documents
-  updateResult, err := userColl.Updater().
+  updateResult, err = userColl.Updater().
       Filter(query.NewBuilder().Gt("age", 18).Lt("age", 25).Build()).Updates(update.Set("name", "burt")).
       UpdateOne(context.Background())
   // Upsert
-  updateResult, err := userColl.Updater().
-      Filter(query.Eq("name", "Mingyong Chen")).
-      Updates(update.NewBuilder().Set("name", "Mingyong Chen").Set("age", 18).Build()).
+  updateResult, err = userColl.Updater().
+      Filter(query.Eq("name", "chenmingyong")).
+      Updates(update.NewBuilder().Set("name", "chenmingyong").Set("age", 18).Build()).
       Upsert(context.Background())
   ```
   [More about Updater](../operator/updater)
 - Query operation
   ```go
   // Find a document
-  findResult, err := userColl.Finder().Filter(query.Eq("name", "chenmingyong")).FindOne(context.Background())
+  user, err := userColl.Finder().Filter(query.Eq("name", "Mingyong Chen")).FindOne(context.Background())
   // Find multiple documents
-  findResults, err := userColl.Finder().Filter(query.In("name", "chenmingyong", "burt")).Find(context.Background())
+  users, err := userColl.Finder().Filter(query.In("name", "Mingyong Chen", "burt")).Find(context.Background())
   // Count, find the number of documents
   count, err := userColl.Finder().Filter(query.Gt("age", 18)).Count(context.Background())
   ```
@@ -100,7 +120,7 @@ go get github.com/chenmingyong0423/go-mongox
       Age          int    `bson:"age"`
   }
   var results []*RealUser
-  err := userColl.Aggregator().
+  err = userColl.Aggregator().
       Pipeline(aggregation.NewStageBuilder().Project(
           bsonx.NewD().Add("real_name", "$name").Add("age", 1).Build(),
       ).Build()).
@@ -111,36 +131,36 @@ go get github.com/chenmingyong0423/go-mongox
 ## Bson Build
 - universal bson build
   ```go
-  // bson.M{"name": "chenmingyong"}
-  m := bsonx.M("name", "chenmingyong")
+  // bson.M{"name": "Mingyong Chen"}
+  m := bsonx.M("name", "Mingyong Chen")
   
-  // bson.M{"_id": "chenmingyong"}
-  id := bsonx.Id("chenmingyong")
+  // bson.M{"_id": "Mingyong Chen"}
+  id := bsonx.Id("Mingyong Chen")
   
-  // bson.E{Key:"name", Value:"chenmingyong"}
-  e := bsonx.E("name", "chenmingyong")
+  // bson.E{Key:"name", Value:"Mingyong Chen"}
+  e := bsonx.E("name", "Mingyong Chen")
   
-  // bson.D{bson.E{Key:"name", Value:"chenmingyong"}, bson.E{Key:"手机号", Value:"1888***1234"}}
-  d := bsonx.D(bsonx.E("name", "chenmingyong"), bsonx.E("手机号", "1888***1234"))
-  // 我们还可以使用 bsonx.DBuilder 来构建 bson.D
-  d2 := bsonx.NewD().Add("name", "chenmingyong").Add("手机号", "1888***1234").Build()
+  // bson.D{bson.E{Key:"name", Value:"Mingyong Chen"}}
+  d := bsonx.D("name", "Mingyong Chen")
+  // we can also use bsonx.DBuilder to build the bson.D
+  d2 := bsonx.NewD().Add("name", "Mingyong Chen").Add("手机号", "1888***1234").Build()
   
-  // bson.A{"chenmingyong", "1888***1234"}
-  a := bsonx.A("chenmingyong", "1888***1234")
+  // bson.A{"Mingyong Chen", "1888***1234"}
+  a := bsonx.A("Mingyong Chen", "1888***1234")
   ```
   [More about bsonx](../build/bsonx)
 - query: query statement build
   ```go
   // Builded directly by a function
-  // bson.D{bson.E{Key:"name", Value:bson.D{bson.E{Key:"$eq", Value:"chenmingyong"}}}}
-  d := query.Eq("name", "chenmingyong")
+  // bson.D{bson.E{Key:"name", Value:bson.D{bson.E{Key:"$eq", Value:"Mingyong Chen"}}}}
+  d := query.Eq("name", "Mingyong Chen")
   
   //  bson.D{bson.E{Key:"age", Value:bson.D{{Key:"$in", Value:[]int{18, 19, 20}}}}}
   d = query.In("age", 18, 19, 20)
   
   // elemMatch
   // bson.D{bson.E{Key: "result", Value: bson.D{bson.E{Key: "$elemMatch", Value: bson.D{bson.E{Key: "$gte", Value: 80}, bson.E{Key: "$lt", Value: 85}}}}}}
-  d = query.ElemMatch("result", bsonx.D(bsonx.E("$gte", 80), bsonx.E("$lt", 85)))
+  d = query.ElemMatch("result", bsonx.NewD().Add("$gte", 80).Add("$lt", 85).Build())
   
   // Builded by a builder
   // bson.D{bson.E{Key:"age", Value:bson.D{{Key:"$gt", Value:18}, bson.E{Key:"$lt", Value:25}}}}
@@ -159,8 +179,8 @@ go get github.com/chenmingyong0423/go-mongox
 - update: update statement build
   ```go
   // Builded directly by a function
-  // bson.D{bson.E{Key:"$set", Value:bson.M{"name":"chenmingyong"}}}
-  u := update.Set("name", "chenmingyong")
+  // bson.D{bson.E{Key:"$set", Value:bson.M{"name":"Mingyong Chen"}}}
+  u := update.Set("name", "Mingyong Chen")
   
   // bson.D{bson.E{Key:"$inc", Value:bson.D{bson.E{Key:"ratings", Value:-1}}}}
   u = update.NewBuilder().Inc("ratings", -1).Build()
@@ -169,10 +189,10 @@ go get github.com/chenmingyong0423/go-mongox
   u = update.NewBuilder().Push("scores", 95).Build()
   
   // Builded by a builder
-  // bson.D{bson.E{Key:"$set", Value:bson.D{bson.E{Key:"name", Value:"chenmingyong"}, bson.E{Key:"sex", Value:"男"}}}}
-  u = update.NewBuilder().Set("name", "chenmingyong").Set("sex", "男").Build()
-  // bson.D{bson.E{Key:"$set", Value:bson.D{bson.E{Key:"name", Value:"chenmingyong"}}}, bson.E{Key:"$inc", Value:bson.D{bson.E{Key:"rating Value:-1}}}, bson.E{Key:"$push", Value:bson.D{bson.E{Key:"scores", Value:95}}}}
-  u = update.NewBuilder().Set("name", "chenmingyong").Inc("ratings", -1).Push("scores", 95).Build()
+  // bson.D{bson.E{Key:"$set", Value:bson.D{bson.E{Key:"name", Value:"Mingyong Chen"}, bson.E{Key:"sex", Value:"男"}}}}
+  u = update.NewBuilder().Set("name", "Mingyong Chen").Set("sex", "男").Build()
+  // bson.D{bson.E{Key:"$set", Value:bson.D{bson.E{Key:"name", Value:"Mingyong Chen"}}}, bson.E{Key:"$inc", Value:bson.D{bson.E{Key:"rating Value:-1}}}, bson.E{Key:"$push", Value:bson.D{bson.E{Key:"scores", Value:95}}}}
+  u = update.NewBuilder().Set("name", "Mingyong Chen").Inc("ratings", -1).Push("scores", 95).Build()
   ```
   [More about update](../build/update/introduction)
 
@@ -198,7 +218,7 @@ go get github.com/chenmingyong0423/go-mongox
   pipeline = aggregation.NewStageBuilder().Unwind("$size", nil).Build()
   
   // mongo.Pipeline{bson.D{bson.E{Key:"$unwind", Value:bson.D{bson.E{Key:"path", Value:"$size"}, bson.E{Key:"includeArrayIndex", Value:"arrayIndex"}, bson.E{Key:"preserveNullAndEmptyArrays", Value:true}}}}}
-  pipeline = aggregation.NewStageBuilder().Unwind("$size", &types.UnWindOptions{
+  pipeline = aggregation.NewStageBuilder().Unwind("$size", &aggregation.UnWindOptions{
       IncludeArrayIndex:          "arrayIndex",
       PreserveNullAndEmptyArrays: true,
   }).Build()
@@ -223,18 +243,26 @@ func (u *User) AfterInsert(ctx context.Context) error {
 	return nil
 }
 
-insertOneResult, err := userColl.Creator().InsertOne(context.Background(), &User{Name: "chenmingyong"})
+// Enable Model Hook
+mongox.InitPlugin(&mongox.PluginConfig{
+    EnableDefaultFieldHook: false,
+    EnableModelHook:        true,
+    EnableValidationHook:   false,
+    Validate:               nil,
+})
+
+insertOneResult, err := userColl.Creator().InsertOne(context.Background(), &User{Name: "Mingyong Chen"})
 ```
 [More about hooks](../hooks/model-hooks)
 ## Plugin
 ```go
 // You can register a callback at any time
-mongox.Register("myBeforeInsertHook", func(ctx context.Context, opCtx *operation.OpContext, opts ...any) error {
+mongox.RegisterPlugin("myBeforeInsertHook", func(ctx context.Context, opCtx *operation.OpContext, opts ...any) error {
     // do something
     return nil
 }, operation.OpTypeBeforeInsert)
 
 // You can remove a callback at any time
-mongox.Remove("myBeforeInsertHook", operation.OpTypeBeforeInsert)
+mongox.RemovePlugin("myBeforeInsertHook", operation.OpTypeBeforeInsert)
 ```
 [More about plugin](../plugins/plugins)

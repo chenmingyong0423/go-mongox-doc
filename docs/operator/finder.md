@@ -25,12 +25,23 @@ count, err := userColl.Finder().
 
 ## Distinct 查询
 ```go
-result, err := userColl.Finder().Distinct(context.Background(), "age")
+// v1
+//result, err := userColl.Finder().Distinct(context.Background(), "age")
+//
+//// 你可以使用 DistinctWithParse 方法来解析结果到一个切片
+//ageSlice := make([]int, 0)
+//err := userColl.Finder().DistinctWithParse(context.Background(), "age", &ageSlice)
+
+// v2
+distinctResult := userColl.Finder().Distinct(context.Background(), "age")
+if distinctResult.Err() != nil {
+    panic(distinctResult.Err())
+}
 
 // 你可以使用 DistinctWithParse 方法来解析结果到一个切片
 ageSlice := make([]int, 0)
 err := userColl.Finder().DistinctWithParse(context.Background(), "age", &ageSlice)
 ```
-- `Distinct` 方法用于查询指定字段的唯一值。`result` 为 `[]any` 类型。
+- `Distinct` 方法用于查询指定字段的唯一值。`mongo-driver v1` 返回的 `result` 为 `[]any` 类型，而 `mongo-driver v2` 返回的则是 `*mongo.DistinctResult` 类型。
 
 - 如果你想要解析结果到一个切片，你可以使用 `DistinctWithParse` 方法。该方法接受一个指向切片的指针作为参数，用于解析结果。
