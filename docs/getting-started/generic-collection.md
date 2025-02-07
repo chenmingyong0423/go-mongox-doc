@@ -9,7 +9,7 @@ type User struct {
   Age          int    `bson:"age"`
 }
 
-// 示例代码，不是最佳的创建方式
+// 示例代码，仅供参考
 func newMongoClient() (*mongo.Client, error) {
   client, err := mongo.Connect(options.Client().ApplyURI("mongodb://localhost:27017").SetAuth(options.Credential{
       Username:   "test",

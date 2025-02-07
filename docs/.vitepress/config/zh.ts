@@ -5,7 +5,7 @@ export const zh = defineConfig({
     description: 'go mongox 指南',
     themeConfig: {
         nav: [
-            {text: '指南', link: '/introduction/getting-started'},
+            {text: '指南', link: '/getting-started/what-is-go-mongox'},
             {text: '贡献', link: '/contribute'},
         ],
 
@@ -15,18 +15,17 @@ export const zh = defineConfig({
         },
 
         sidebar: [
-
             {
-                text: '简介',
+                text: '入门指南',
                 collapsed: true,
                 items: [
-                    {text: 'go mongox 的介绍', link: '/introduction/what-is-go-mongox'},
-                    {text: '快速开始', link: '/introduction/getting-started'}
+                    {text: '简介', link: '/getting-started/what-is-go-mongox'},
+                    {text: '文档模型', link: '/getting-started/model'},
+                    {
+                        text: '泛型的 Collection',
+                        link: '/getting-started/generic-collection',
+                    },
                 ]
-            },
-            {
-                text: '泛型的 Collection',
-                link: '/collection/generic-collection',
             },
             {
                 text: 'CRUD 操作器',
@@ -135,11 +134,6 @@ export const zh = defineConfig({
                         ]
                     },
                 ]
-            },
-            {
-                text: '内置的 Model',
-                collapsed: true,
-                link: '/model'
             },
             {
                 text: '数据校验',

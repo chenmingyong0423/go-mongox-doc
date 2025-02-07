@@ -11,7 +11,7 @@ hero:
   actions:
     - theme: brand
       text: Getting Started
-      link: /en/introduction/getting-started
+      link: /en/getting-started/getting-started
     - theme: alt
       text: Github
       link: https://github.com/chenmingyong0423/go-mongox

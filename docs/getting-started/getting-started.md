@@ -58,7 +58,7 @@ go get github.com/chenmingyong0423/go-mongox
 
   后面的操作将基于 `userColl` 对象进行举例。
     
-  更多关于 `Collection` 的操作请参考 [泛型的 Collection](../collection/generic-collection)。
+  更多关于 `Collection` 的操作请参考 [泛型的 Collection](generic-collection.md)。
 - 插入操作
   ```go
   // 插入一个文档
