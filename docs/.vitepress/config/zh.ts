@@ -153,6 +153,10 @@ export const zh = defineConfig({
                 ]
             },
             {
+                text: 'mongox 更新日志',
+                link: '/changelog'
+            },
+            {
                 text: '更新中...',
             }
         ],

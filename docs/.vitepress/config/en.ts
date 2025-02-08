@@ -155,6 +155,10 @@ export const en = defineConfig({
                         ]
                     },
                     {
+                        text: 'mongox changelog',
+                        link: '/changelog'
+                    },
+                    {
                         text: 'Updating...',
                     }
                 ],
