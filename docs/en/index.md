@@ -2,34 +2,34 @@
 layout: home
 
 hero:
-  name: "go mongox documentation"
-  text: "Generic Collection, chain call, efficient build bson, Plugin programming" 
-  tagline: "A generic operation library for Go language, which is a secondary encapsulation based on the official MongoDB library"
-  image:
+    name: "mongox Documentation"
+    text: "Generic Collections, Method Chaining, Efficient BSON Construction, Plugin-based Programming"
+    tagline: "A Go language library that extends the official MongoDB library with generics"
+    image:
     src: /go-mongox-logo.png
-    alt: go mongox
-  actions:
-    - theme: brand
-      text: Getting Started
-      link: /en/getting-started/getting-started
-    - theme: alt
-      text: Github
-      link: https://github.com/chenmingyong0423/go-mongox
+    alt: mongox
+    actions:
+        - theme: brand
+          text: Get Started
+          link: /en/getting-started/generic-collection
+        - theme: alt
+          text: Github
+          link: https://github.com/chenmingyong0423/go-mongox
 
 features:
-  - title: Generic Collection
-    details: By leveraging generics to bind structs with MongoDB collections, it ensures type safety and simplifies data operations.
-  - title: Chain call
-    details: Use chain calls to operate MongoDB collections, making data operations more convenient
-  - title: Efficient build bson
-    details: Through the bson builder and built-in build functions provided by go mongox, bson can be more conveniently buildeded
-  - title: Plugin programming
-    details: go mongox provides a way of plug-in programming, which can more conveniently extend the function of go mongox
+  - title: Generic Collections (Collection)
+    details: Bind structs to MongoDB collections using generics, achieving type safety and simplifying data operations.
+  - title: Method Chaining
+    details: Operate on MongoDB collections using method chaining, making data manipulation more convenient.
+  - title: Efficient BSON Construction
+    details: Use the BSON builders and built-in functions provided by mongox to easily construct BSON data.
+  - title: Plugin-based Programming
+    details: mongox supports plugin-based programming, making it easier to extend the functionality of mongox.
   - title: Hooks
-    details: go mongox provides a way of hook function, which can more conveniently handle the data operation before and after
-  - title: Built-in model, automate updates to the default field fields
-    details: go mongox comes with a built-in generic Model struct. Its fields are automatically updated when creating or modifying documents.
-  - title: Support for Struct Tag Validation
-    details: go mongox uses the go-playground/validator library to ensure that the values of struct fields comply with predefined validation rules.
----
+    details: mongox provides hook functions for handling logic before and after data operations.
+  - title: Built-in Model with Automatic Field Updates
+    details: mongox includes a generic Model struct that automatically updates its field values when creating or modifying documents.
+  - title: Struct Tagging
+    details: mongox supports tagging structs (the generic parameter of Collection) to automatically populate field values when inserting or updating documents. This reduces redundant code and improves development efficiency.
 
+---

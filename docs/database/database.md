@@ -68,6 +68,6 @@ func (d *Database) RegisterPlugin(name string, cb callback.CbFn, opType operatio
     ```
   该函数接收三个参数：
     - `ctx`：上下文对象
-    - `opCtx`：操作上下文对象，详情请查看 [OpContext 结构体](../operation/op_context.md)
+    - `opCtx`：操作上下文对象，详情请查看 [OpContext 结构体](../plugins/op-context)
     - `opts`：可选参数
-- `opType`：插件的类型，支持的类型请查看 [OpType 插件类型](../operation/op_type.md)
+- `opType`：插件的类型，支持的类型请查看 [OpType 插件类型](../plugins/op-type)

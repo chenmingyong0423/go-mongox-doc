@@ -7,7 +7,7 @@ type OpType string
 `OpType` 插件类型定义了以下常量：
 
 | 类型                             | 描述        | 
-      |--------------------------------|-----------|
+|--------------------------------|-----------|
 | `operation.OpTypeBeforeInsert` | 在插入文档之前执行 |
 | `operation.OpTypeAfterInsert`  | 在插入文档之后执行 |
 | `operation.OpTypeBeforeUpdate` | 在更新文档之前执行 |

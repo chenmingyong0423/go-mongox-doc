@@ -136,16 +136,6 @@ export const zh = defineConfig({
                 ]
             },
             {
-                text: '数据校验',
-                collapsed: true,
-                items: [
-                    {
-                        text: '结构体校验',
-                        link: '/validation/struct-validation'
-                    }
-                ]
-            },
-            {
                 text: '钩子 (Hooks)',
                 collapsed: true,
                 items: [
@@ -158,6 +148,8 @@ export const zh = defineConfig({
                 collapsed: true,
                 items: [
                     {text: '插件化编程', link: '/plugins/plugins'},
+                    {text: '上下文对象', link: '/plugins/op-context'},
+                    {text: '插件类型', link: '/plugins/op-type'},
                 ]
             },
             {

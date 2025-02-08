@@ -1,4 +1,4 @@
-# OpContext 结构体
+# 上下文对象
 `OpContext` 结构体用于传递操作上下文信息，它包含以下字段：
 ```go
 type OpContext struct {
