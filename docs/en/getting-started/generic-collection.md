@@ -1,6 +1,6 @@
 # Generic Collection
 
-`mongox` provides a generic `Collection` object, which allows you to interact with MongoDB collections using method chaining, making data operations more convenient.
+`mongox` provides a generic `Collection` object, which allows you to interact with `MongoDB` collections using method chaining, making data operations more convenient.
 
 ## Creating a Generic Collection
 

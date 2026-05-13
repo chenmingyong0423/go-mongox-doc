@@ -1,2 +1,3 @@
 # Query Package
-The `query` package offers a straightforward approach for building `MongoDB` query conditions. It includes an array of functions and builders designed to simplify the build of query conditions. For complex query conditions, builders enable flexible building through a method of chainable calls. For simpler needs, direct use of functions facilitates quick build of query conditions.
+
+The `query` package builds `MongoDB` query filters. The pages follow `MongoDB` query operator categories and only list APIs currently implemented by go-mongox.

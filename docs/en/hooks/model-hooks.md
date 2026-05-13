@@ -1,6 +1,6 @@
 # Model Hooks
 
-You can set up hook functions for models (structs), and these hook functions will be called before and after MongoDB collection operations. For example, you can process a document before and after inserting it, or handle a document after querying it.
+You can set up hook functions for models (structs), and these hook functions will be called before and after `MongoDB` collection operations. For example, you can process a document before and after inserting it, or handle a document after querying it.
 
 The currently supported hooks are:
 

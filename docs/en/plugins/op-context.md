@@ -25,11 +25,11 @@ type OpContext struct {
 - `Filter`: The query filter.
 - `Updates`: The updates to be applied to the document.
 - `Pipeline`: The aggregation pipeline.
-- `MongoOptions`: MongoDB operation options.
+- `MongoOptions`: `MongoDB` operation options.
 - `ModelHook`: The model hook.
 - `ReflectValue`: The reflection value of `Doc`, used for dynamically modifying the document object inside plugins.
 - `StartTime`: The start time of the operation.
-- `Result`: The result of the MongoDB collection operation.
+- `Result`: The result of the `MongoDB` collection operation.
 
 ### Different Operation Types and Their Context Fields
 
@@ -60,4 +60,4 @@ Depending on the operation type, the values of `OpContext` fields may differ. Fo
 
 - Regardless of the operation type, `MongoOptions` and `Result` may be non-nil.
 
-- Whether `OpContext.MongoOptions` and `ModelHook` are nil depends on whether the user has set them via `Creator`, `Updater`, `Deleter`, `Finder`, or `Aggregator` during the MongoDB operation.
+- Whether `OpContext.MongoOptions` and `ModelHook` are nil depends on whether the user has set them via `Creator`, `Updater`, `Deleter`, `Finder`, or `Aggregator` during the `MongoDB` operation.

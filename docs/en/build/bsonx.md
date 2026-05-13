@@ -1,15 +1,17 @@
 # bsonx Package
-The `bsonx` package provides a range of convenient functions and builders for building BSON data, aimed at simplifying the process of building BSON data.
+The `bsonx` package provides a range of convenient functions and builders for building `BSON` data, aimed at simplifying the process of building `BSON` data.
 
 ## Builder
 Currently, the `bsonx` package only provides a builder for `bson.D` data called `DBuilder`.
 ```go
+// bson.D{bson.E{Key:"name", Value:"Mingyong Chen"}, bson.E{Key:"name", Value:"Burt"}}
 d := bsonx.NewD().Add("name", "Mingyong Chen").Add("name", "Burt").Build()
 ```
 
 ## Functions
-Functions simplify the process of building BSON data.
+Functions simplify the process of building `BSON` data.
 ```go
+// bson.M{"name": "Mingyong Chen"}
 m := bsonx.M("name", "Mingyong Chen")
 e := bsonx.E("name", "Mingyong Chen")
 d := bsonx.D("name", "Mingyong Chen")

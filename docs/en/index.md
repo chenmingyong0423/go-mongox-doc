@@ -3,8 +3,8 @@ layout: home
 
 hero:
     name: "mongox Documentation"
-    text: "Generic Collections, Method Chaining, Efficient BSON Construction, Plugin-based Programming"
-    tagline: "A Go language library that extends the official MongoDB library with generics"
+    text: "Generic Collections, Method Chaining, Efficient `BSON` Construction, Plugin-based Programming"
+    tagline: "A `Go` language library that extends the official `MongoDB` library with generics"
     image:
     src: /go-mongox-logo.png
     alt: mongox
@@ -18,11 +18,11 @@ hero:
 
 features:
   - title: Generic Collections (Collection)
-    details: Bind structs to MongoDB collections using generics, achieving type safety and simplifying data operations.
+    details: Bind structs to `MongoDB` collections using generics, achieving type safety and simplifying data operations.
   - title: Method Chaining
-    details: Operate on MongoDB collections using method chaining, making data manipulation more convenient.
-  - title: Efficient BSON Construction
-    details: Use the BSON builders and built-in functions provided by mongox to easily construct BSON data.
+    details: Operate on `MongoDB` collections using method chaining, making data manipulation more convenient.
+  - title: Efficient `BSON` Construction
+    details: Use the `BSON` builders and built-in functions provided by mongox to easily construct `BSON` data.
   - title: Plugin-based Programming
     details: mongox supports plugin-based programming, making it easier to extend the functionality of mongox.
   - title: Hooks

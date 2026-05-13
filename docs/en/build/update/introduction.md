@@ -1,2 +1,3 @@
 # Update Package
-The `update` package offers convenient methods for building MongoDB update documents. It encompasses a variety of functions and builders aimed at simplifying the build of update documents. For complex update documents, builders provide a flexible build method through chainable calls; for simpler needs, functions can be directly utilized to swiftly build update documents.
+
+The `update` package builds `MongoDB` update documents. The pages follow `MongoDB` update operator categories and include array update modifiers.

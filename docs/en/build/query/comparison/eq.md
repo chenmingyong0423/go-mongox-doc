@@ -1,13 +1,13 @@
 # Query Condition - $eq
 ## Function Build
-Build the `eq` query condition using the `Eq` function provided by the `query` package.
+Build the `$eq` query condition using the `Eq` function provided by the `query` package.
 ```go
 // bson.D{bson.E{Key: "name", Value: bson.D{bson.E{Key: "$eq", Value: "Mingyong Chen"}}}}
 query.Eq("name", "Mingyong Chen")
 ```
 
 ## Method Build (Builder)
-Build the `eq` query condition using the `Builder` builder provided by the `query` package.
+Build the `$eq` query condition using the `Builder` builder provided by the `query` package.
 ```go
 // bson.D{bson.E{Key:"name", Value:bson.D{bson.E{Key:"$eq", Value:"Mingyong Chen"}}}}
 query.NewBuilder().Eq("name", "Mingyong Chen").Build()
