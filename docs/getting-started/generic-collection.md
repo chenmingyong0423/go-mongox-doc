@@ -4,7 +4,7 @@
 ## 创建泛型的 Collection
 ```go
 type User struct {
-  mongox.Model `bson:"inline"`
+  mongox.Model `bson:",inline"`
   Name         string `bson:"name"`
   Age          int    `bson:"age"`
 }
