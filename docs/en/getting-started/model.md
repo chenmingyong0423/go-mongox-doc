@@ -49,10 +49,21 @@ If the struct contains `CreatedAt` and `UpdatedAt` fields, `mongox` will automat
 
 If you wish to use fields other than `CreatedAt` and `UpdatedAt`, you can configure the `autoCreateTime` and `autoUpdateTime` tags.
 
+Auto time fields are populated according to the field type:
+
+| Field Type  | Tag without precision, such as `autoCreateTime` | Tag with precision, such as `autoCreateTime:milli` |
+|-------------|-------------------------------------------------|----------------------------------------------------|
+| `time.Time` | Current time                                    | Not supported                                      |
+| `int`       | Unix timestamp in seconds                       | Unix timestamp with the specified precision        |
+| `int64`     | Unix timestamp in seconds                       | Unix timestamp with the specified precision        |
+
+The `second`, `milli`, and `nano` options are timestamp precisions for `int` and `int64` fields.
+
 ```go
 type User struct {
 	CreatedAt        time.Time // Automatically set to the current time if zero value when inserting
 	UpdatedAt        int       // Automatically set to the current timestamp (in seconds) if zero value when inserting or updating
+	CustomCreatedAt  time.Time `mongox:"autoCreateTime"`        // Fills with the current time
 	CreateSecondTime int64     `mongox:"autoCreateTime"`        // Fills with timestamp in seconds
 	UpdateSecondTime int64     `mongox:"autoUpdateTime:second"` // Fills with timestamp in seconds
 	CreateMilliTime  int64     `mongox:"autoCreateTime:milli"`  // Fills with timestamp in milliseconds
@@ -69,5 +80,5 @@ type User struct {
 | Tag Name         | Description                                                                                                                                                                                         |
 |------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `autoID`         | Automatically sets the field value to `ObjectID` type when the document is inserted, if the field is zero value.                                                                                    |
-| `autoCreateTime` | Automatically sets the field value to the current time when the document is inserted, if the field is zero value. You can also use the `second`, `milli`, or `nano` timestamp precision.            |
-| `autoUpdateTime` | Automatically sets the field value to the current time when the document is inserted or updated, if the field is zero value. You can also use the `second`, `milli`, or `nano` timestamp precision. |
+| `autoCreateTime` | Automatically sets the creation time when the document is inserted, if the field is zero value. `time.Time` fields are set to the current time. `int` and `int64` fields default to Unix seconds and can use `second`, `milli`, or `nano` to specify timestamp precision. |
+| `autoUpdateTime` | Automatically sets the update time when the document is inserted with a zero value or when the document is updated. `time.Time` fields are set to the current time. `int` and `int64` fields default to Unix seconds and can use `second`, `milli`, or `nano` to specify timestamp precision. |
