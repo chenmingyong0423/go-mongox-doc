@@ -1,5 +1,20 @@
 # Changelog
 
+## v2.10.0
+The `v2.10.0` version was released on **June 30, 2026** (Beijing Time). This release mainly fixes automatic time field handling for incompatible field types and precision tags, and upgrades the `MongoDB Go Driver` to `v2.7.0`.
+
+### Bug Fixes
+- **Automatic Time Field Compatibility**: Fixed the parsing and assignment logic for `mongox:"autoCreateTime"` and `mongox:"autoUpdateTime"` on fields such as `time.Time`, `int`, and `int64`, preventing incompatible time values from being written to fields.
+- **Precision Tag Handling**: When a `time.Time` field incorrectly uses timestamp precision tags such as `:second`, `:milli`, or `:nano`, the automatic time configuration is now ignored to avoid writing `Unix` timestamps into `time.Time` fields.
+- **Custom Integer Type Assignment**: Automatic time fields now convert generated `Unix` timestamp values into compatible target integer types when assigning values.
+- **Batch Field Hook Execution**: Added test coverage for error propagation when executing field hooks in batches.
+
+### Dependency Updates
+- **`MongoDB Go Driver`**: Upgraded `go.mongodb.org/mongo-driver/v2` from `v2.5.0` to `v2.7.0`.
+
+### Related Documentation
+- [Document Model](getting-started/model) has been updated with the corresponding automatic time field usage notes.
+
 ## v2.2.0
 The `v2.2.0` version was released on **February 8, 2025** (Beijing Time). This version introduces a number of significant changes, including:
 
